@@ -13,7 +13,7 @@ const Register = () => {
       </div>
 
       <div className={Styles.part2}>
-      <div className={Styles.close}><CloseIcon/></div>
+      <div className={Styles.close}></div>
 
       <div className={Styles.titles}>
         <span className={Styles.title}>Create Account</span>
@@ -31,7 +31,7 @@ const Register = () => {
          className={Styles.submit}/>
       </div>
       <div className={Styles.policy}>
-        <span className={Styles.policys}><Link to={'/login'}>Login here </Link>/By logging in,</span>
+        <span className={Styles.policys}>By logging in,</span>
         <span className={Styles.policys}>I understand & agree to EaseMyTrip terms of use and privacy policy</span>
       </div>
     </div>

@@ -3,7 +3,7 @@ import Styles from './Login.module.scss'
 import CloseIcon from '@mui/icons-material/Close';
 import { Link } from 'react-router-dom';
 const login = () => {
-  return (
+return (
     <div className={Styles.logform}>
     <div className={Styles.form}>
 
@@ -13,7 +13,7 @@ const login = () => {
       </div>
 
       <div className={Styles.part2}>
-      <div className={Styles.close}><CloseIcon/></div>
+      <div className={Styles.close}></div>
 
       <div className={Styles.titles}>
         <span className={Styles.title}>Login</span>
@@ -31,7 +31,7 @@ const login = () => {
          className={Styles.submit}/>
       </div>
       <div className={Styles.policy}>
-        <span className={Styles.policys}><Link to={'/register'}>Create Account</Link>/ By logging in,</span>
+        <span className={Styles.policys}> By logging in,</span>
         <span className={Styles.policys}>I understand & agree to EaseMyTrip terms of use and privacy policy</span>
       </div>
     </div>

@@ -8,6 +8,7 @@ import SupportAgentIcon from '@mui/icons-material/SupportAgent';
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import PersonIcon from '@mui/icons-material/Person';
 import { Link } from 'react-router-dom';
+import BasicMenu from '../basicmenu/BasicMenu';
 const Navbar = () => {
   return (
     <div className={Styles.Container}>
@@ -46,9 +47,10 @@ const Navbar = () => {
         </div>
     <div className={Styles.Logins}>
         <div className={Styles.Login}>
-          <PersonIcon  />
+          {/* <PersonIcon  /> */}
+          <BasicMenu/>
         
-            <Link to={'./register'} className={Styles.btn}>Login</Link> 
+            {/* <Link to={'./register'} className={Styles.btn}>Login</Link>  */}
         </div>
         </div>
       </div>
