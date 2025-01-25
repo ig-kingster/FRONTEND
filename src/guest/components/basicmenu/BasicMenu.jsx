@@ -49,6 +49,10 @@ export default function BasicMenu() {
   const LoginClose = () => {
     setlogin(false);
   };
+
+
+
+
   return (
     <div className={Styles.menu}>
       <Button
@@ -72,6 +76,7 @@ export default function BasicMenu() {
       >
         <MenuItem onClick={LoginOpen}>Login</MenuItem>
         <MenuItem onClick={SignupOpen}>Sign Up</MenuItem>
+
         {/* <MenuItem onClick={handleClose}>Logout</MenuItem> */}
       </Menu>
       <Dialog
@@ -83,6 +88,17 @@ export default function BasicMenu() {
         maxWidth='md'
         PaperProps={{style: {width:'2000px',      backgroundColor: 'transparent',   boxShadow: 'none', }}}
       > <Login/>
+        
+      </Dialog>
+      <Dialog
+        open={signup}
+        TransitionComponent={Transition}
+        keepMounted
+        onClose={SignupClose}
+        aria-describedby="alert-dialog-slide-description"
+        maxWidth='md'
+        PaperProps={{style: {width:'2000px',      backgroundColor: 'transparent',   boxShadow: 'none', }}}
+      > <Register/>
         
       </Dialog>
       <Dialog

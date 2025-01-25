@@ -1,9 +1,6 @@
-.index{
-    display: flex;
-    flex-direction: column;
-    .navbar{
-    position: relative;
-
-
+@media (min-width: 768px) {
+    .container {
+      flex-direction: row;
+      justify-content: space-around;
     }
-}
+  }

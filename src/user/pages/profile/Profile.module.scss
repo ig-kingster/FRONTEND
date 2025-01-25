@@ -1,0 +1,16 @@
+.container{
+display: flex;
+flex-direction: column;
+.sub{
+    display: flex;
+
+    .sidebar{
+        position: relative;
+    }
+    .main{
+        margin-left: 200px;
+
+
+    }
+}
+}
