@@ -1,0 +1,90 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50px;
+    gap: 30px;
+
+    .top {
+        display: flex;
+        padding: 20px;
+        background-color: rgb(255, 255, 255);
+        border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+        margin-top: 50px;
+        gap: 30px;
+
+        .item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+            
+            &:hover {
+
+                transform: translateX(3px);
+                border: 1px solid #2c73d2;
+                border-radius: 10px;
+                
+            }
+            .title {
+                display: flex;
+                align-items: center;
+                &:hover {
+                    
+                    color: #2c73d2;
+
+                }
+                .titleicon {
+                    font-size: 20px;
+
+                }
+                .titlelabel{
+
+                }
+
+            }
+
+            .subtitle {
+                display: flex;
+                font-size: 10px;
+
+
+                .sublabel {
+                    
+                }
+            }
+            .search{
+                display: flex;
+                border: 1px solid;
+                border-radius: 2px;
+                padding: 10px;
+                .searchtxt{
+                    outline: none;
+                    border:none;
+                }
+                    .searchicon{
+
+                    }
+                
+            }
+        }
+    }
+
+    .center {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        background-color: rgb(255, 255, 255);
+        border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+        height: 50vh;
+        .img{
+            display: flex;
+            justify-content: center;
+        }
+        .imglabel{
+            display: flex;
+            justify-content: center;
+        }
+    }
+}

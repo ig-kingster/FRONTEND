@@ -7,6 +7,7 @@ import LockIcon from '@mui/icons-material/Lock';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import MilitaryTechIcon from '@mui/icons-material/MilitaryTech';
 import VerifiedIcon from '@mui/icons-material/Verified';
+import { Link } from 'react-router-dom';
 const Sidebar = () => {
     return (
 
@@ -53,18 +54,18 @@ const Sidebar = () => {
                         <PersonIcon className={Styles.elementicon} />
                         </div>
                         <div className={Styles.title}>
-
-                        <span className={Styles.elementname}>Account Info</span>
+                        
+                        <span className={Styles.elementname}><Link to='/user/profile' className={Styles.link}>  Account Info</Link></span>
                         <span className={Styles.elementsub}>manage your profile,bookings & more</span>
                         </div>
+                        </div>
 
-                    </div>
                     <div className={Styles.element}>
                         <div className={Styles.icon}>
                             <ConfirmationNumberIcon className={Styles.elementicon} />
                         </div>
                         <div className={Styles.title}>
-                            <span className={Styles.elementname}>Bookings</span>
+                            <span className={Styles.elementname}><Link to='/user/bookings' className={Styles.link}>Bookings</Link></span>
                             <span className={Styles.elementsub}>check your latest/cancelled/pending bookings</span>
                         </div>
                     </div>
@@ -75,7 +76,7 @@ const Sidebar = () => {
                         </div>
                         <div className={Styles.title}>
 
-                            <span className={Styles.elementname}>Co-Travellers</span>
+                            <span className={Styles.elementname}><Link to='/user/cotraveller' className={Styles.link}>Co-Travellers</Link></span>
                             <span className={Styles.elementsub}>add or delete respective travellers details</span>
 
                         </div>
@@ -86,7 +87,7 @@ const Sidebar = () => {
                         </div>
                         <div className={Styles.title}>
 
-                            <span className={Styles.elementname}>Settings</span>
+                            <span className={Styles.elementname}><Link to='/user/settings' className={Styles.link}>Settings</Link></span>
                             <span className={Styles.elementsub}>manage notifications & more</span>
 
                         </div>
@@ -97,7 +98,7 @@ const Sidebar = () => {
                         </div>
                         <div className={Styles.title}>
 
-                            <span className={Styles.elementname}>Logout</span>
+                            <span className={Styles.elementname}><Link to='/user' className={Styles.link}>Logout</Link></span>
                             <span className={Styles.elementsub}>logout from your account</span>
 
                         </div>

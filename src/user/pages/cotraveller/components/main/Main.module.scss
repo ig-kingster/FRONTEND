@@ -1,0 +1,60 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50px;
+    gap: 30px;
+.sub{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    margin-top: 50px;
+    gap: 30px;
+    .title{
+
+    }
+    .cotravellers{
+        display: flex;
+        align-items: center;
+        gap: 30px;        
+        .name{
+            .namelabel{
+
+            }
+            .nametxt{
+                .txt{
+                    width: 24vw;
+                    height: 4vh;
+                }
+        
+            }
+        }
+        .number{
+            .numberlabel{
+
+            }
+            .numbertxt{
+.txt{
+    width: 24vw;
+    height: 4vh;
+}
+
+            }
+        }
+    }
+    .add{
+        display: flex;
+        justify-content: end;
+
+        .btn{
+            color: white;
+            background-color: rgb(66, 255, 66);
+            border: none;
+            border-radius: 30px;
+        width: 5vw;
+        height: 5vh;
+        }
+    }
+}}
