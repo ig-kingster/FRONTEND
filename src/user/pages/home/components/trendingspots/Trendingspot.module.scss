@@ -1,0 +1,65 @@
+.trendings {
+    display: flex;
+    flex-direction: column;
+    .heads {
+        font-size: 30px;
+        margin-left: 20px;
+        .head {
+            color: #2c73d2;
+
+        }
+    }
+
+    .trending {
+        display: flex;
+        justify-content: center;
+        
+        .spots {
+            display: flex;
+
+            .spot {
+                display: flex;
+                padding: 20px;
+
+                .names {
+                    display: flex;
+
+                    .name {
+
+                        display: flex;
+                        flex-direction: column;
+
+                        // .shadow {
+                        //     height: 200px;
+                        //     width: 250px;
+                        //     border-radius: 30px;
+                        //     position: absolute;
+                        //     box-shadow: inset -0px -50px 90px -0px black;
+                        //     opacity: 80%;
+                        // }
+
+                        .spotimg {
+                            height: 200px;
+                            margin-right: 10px;
+                            width: 250px;
+                            border-radius: 30px;
+                            position: relative;
+                            z-index: -2;
+
+                        }
+
+                        .title {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            color: rgb(0, 0, 0);
+                            position: relative;
+                            font-size: 26px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
