@@ -1,9 +1,11 @@
 import React from 'react'
 import Navbar from '../../components/navbar/Navbar'
 import Footer from '../../components/footer/Footer'
-import Widget from '../../components/widget/Widget'
-import Banner from '../../components/banner/banner'
+
 import Styles from './Index.module.scss'
+import Trendingspot from '../../components/trendingspots/Trendingspot'
+import TopPackage from '../../components/toppackage/TopPackage'
+import Banner from '../../components/banner/Banner'
 
 
 
@@ -12,7 +14,8 @@ const Index = () => {
     <div className={Styles.index}>
     <div className={Styles.navbar}>  <Navbar/></div>
     <Banner/>
-    <Widget/>
+    <Trendingspot/>
+    <TopPackage/>
     <Footer/>
 
     </div>

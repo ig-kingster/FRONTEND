@@ -3,6 +3,7 @@ import Styles from './Navbar.module.scss'
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import SupportAgentIcon from '@mui/icons-material/SupportAgent';
 import SearchSharpIcon from '@mui/icons-material/SearchSharp';
+import { Link } from 'react-router-dom';
 
 
 const Navbar = () => {
@@ -21,10 +22,10 @@ const Navbar = () => {
 
 
 
-
         <div className={Styles.Contact}>
         <div className={Styles.Contacts}>
-          <div className={Styles.ContactIcon}><SupportAgentIcon className={Styles.icon} />
+          <div className={Styles.ContactIcon}>
+          <Link to={'/user/profile'}><SupportAgentIcon className={Styles.icon} /></Link>
             <span>+9194574126</span>
           </div>
           <div className={Styles.ContactIcon}>

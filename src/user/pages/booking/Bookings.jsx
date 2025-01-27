@@ -2,8 +2,8 @@ import React from 'react'
 import Navbar from '../../components/navbar/Navbar'
 import Sidebar from '../../components/sidebar/Sidebar'
 import Main from './components/main/Main'
-import Styles from './Booking.module.scss'
-const Booking = () => {
+import Styles from './Bookings.module.scss'
+const Bookings = () => {
   return (
     <div className={Styles.container}>
       <div className={Styles.navbar}><Navbar/></div>  
@@ -18,4 +18,4 @@ const Booking = () => {
   )
 }
 
-export default Booking
+export default Bookings

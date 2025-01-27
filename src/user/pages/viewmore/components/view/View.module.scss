@@ -1,0 +1,234 @@
+
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+
+  .sub {
+    display: flex;
+    gap: 20px;
+    padding: 10px;
+  }
+  
+  .left {
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  
+    .img {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+      gap: 10px;
+  
+      .images {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+      border-radius: 8px;
+
+      }
+    }
+  }
+  
+  .center {
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    .pkgimage {
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+      .pkgimg {
+        width: 300px;
+        height: 300px;
+        border-radius: 12px;
+        object-fit: cover;
+        border: 1px solid #ddd;
+      }
+    }
+  }
+  
+  .right {
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    flex-grow: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  
+    .main {
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+      .pkgtitle {
+        margin-top: 50px;
+
+        font-size: 24px;
+      }
+  
+      .rating {
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+  
+      .price {
+        font-size: 22px;
+        color: #e74c3c;
+      }
+  
+      .duration, .info {
+        display: flex;
+        gap: 10px;
+  
+        div {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+      }
+  
+      .discription {
+        span {
+            color: orange;
+        }
+        p {
+          margin-top: 5px;
+        }
+      }
+      .Bookbtn{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 6vw;
+        height: 5vh;
+border-radius: 10px;
+        background-color: orange;
+
+        .btn{
+            color: white;
+        }
+
+      }
+    }
+  
+    .submain {
+        padding: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+
+      .hotel {
+        .hoteltitle {
+          display: flex;
+          gap: 10px;
+  
+          .hotellogo {
+            .img {
+              width: 50px;
+              height: 50px;
+              border-radius: 50%;
+            }
+          }
+  
+          .hotelname {
+            font-size: 18px;
+            font-weight: bold;
+          }
+        }
+  
+        .hotelinfo {
+          margin-top: 10px;
+          p {
+            margin-bottom: 5px;
+          }
+        }
+      }
+    }
+  }
+  
+  .feedbackSection {
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    margin-top: 40px;
+    background-color: #eae9e9;
+  
+    h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+  
+    .feedbackList {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+  
+      .feedbackItem {
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 15px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+        .feedbackHeader {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 10px;
+  
+          .userName {
+            font-weight: bold;
+          }
+  
+          .userRating {
+            color: #f1c40f;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+          }
+        }
+  
+        .userComment {
+          font-size: 14px;
+          line-height: 1.5;
+        }
+      }
+    }
+  }
+}
+  
+  // Responsive Design
+  @media (max-width: 768px) {
+    .sub {
+      flex-direction: column;
+    }
+  
+    .left {
+      flex-direction: row;
+      overflow-x: auto;
+      .img {
+        .images {
+          width: 80px;
+          height: 80px;
+        }
+      }
+    }
+  
+    .center .pkgimage .pkgimg {
+      width: 250px;
+      height: 250px;
+    }
+  
+    .right {
+      .main .pkgtitle {
+        font-size: 20px;
+      }
+  
+      .main .price {
+        font-size: 18px;
+      }
+    }
+  }
