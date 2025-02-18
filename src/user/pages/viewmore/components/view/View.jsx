@@ -5,6 +5,7 @@ import WbSunnyIcon from '@mui/icons-material/WbSunny';
 import BedtimeIcon from '@mui/icons-material/Bedtime';
 import BedIcon from '@mui/icons-material/Bed';
 import GroupsIcon from '@mui/icons-material/Groups';
+import { Link } from 'react-router-dom';
 
 const View = () => {
     const feedbacks = [
@@ -116,7 +117,7 @@ const View = () => {
                             </p>
                         </div>
                         <div className={Styles.Bookbtn}>
-                            <span className={Styles.btn}>Book Now</span>
+                            <span className={Styles.btn}><Link to='./payment' className={Styles.link}>Book Now</Link></span>
                         </div>
                     </div>
 

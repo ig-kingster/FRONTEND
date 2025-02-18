@@ -1,0 +1,65 @@
+.container {
+    padding: 20px;
+    .sub{
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+      
+    .layout{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        justify-content: center;
+        .package {
+            display: flex;
+            flex-direction: column;
+            border-radius: 10px;
+    
+    
+    width: 19%;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    
+            .packageimage {
+                display: flex;
+                justify-content: center;
+                
+                .img{
+    overflow: hidden;                
+    border-radius: 10px;
+    
+                }
+            }
+    
+            .packageinfo {
+                display: flex;
+                flex-direction: column;
+                padding: 30px;
+                width: 13vw;
+                border-radius: 10px;
+                gap: 10px;
+            
+                .packagename {
+                    display: flex;
+                    justify-content: center;
+                }
+                .pkginfo{
+                    display: flex;
+                    gap: 30px;
+    
+                .packageprice {}
+    
+                .explore {
+               display: flex;
+               gap: 10px;
+                    .exploretxt{
+                       
+                    }
+                    .exploreicon{
+                       
+                    }
+                }
+            }
+        }
+    }
+    }
+    }}

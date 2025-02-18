@@ -14,7 +14,7 @@ const Navbar = () => {
         </div>
 
         <div className={Styles.search}>
-        <button className={Styles.btn} ><SearchSharpIcon /></button>
+        <button className={Styles.btn} ><Link to={'/user/search'}><SearchSharpIcon /></Link></button>
            
             <input type='text' className={Styles.txt} placeholder='search your destination' />
             {/* <input type='submit' name='search' value='<SearchSharpIcon/>' className={Styles.btn} /> */}

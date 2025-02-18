@@ -6,18 +6,23 @@ import Cotraveller from '../user/pages/cotraveller/cotraveller'
 import Settings from '../user/pages/settings/Settings'
 import Bookings from '../user/pages/booking/Bookings'
 import ViewMore from '../user/pages/viewmore/ViewMore'
+import Search from '../user/pages/search/Search'
+import Payment from '../user/pages/payment/Payment'
 
 const UserRoutes = () => {
   return (
     <div>
-<Routes>
-  <Route path="/" element={<Home/>}/>
-  <Route path='/profile' element={<Profile/>}/>
-  <Route path='/bookings' element={<Bookings/>}/>
-  <Route path='/cotraveller'element={<Cotraveller/>}/>
-  <Route path='/settings' element={<Settings/>}/>
-  <Route path='/viewmore' element={<ViewMore/>}/>
-  </Routes>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path='/profile' element={<Profile />} />
+        <Route path='/bookings' element={<Bookings />} />
+        <Route path='/cotraveller' element={<Cotraveller />} />
+        <Route path='/settings' element={<Settings />} />
+        <Route path='/viewmore' element={<ViewMore />} />
+        <Route path='/search' element={<Search />} />
+        <Route path='/search/viewmore' element={<ViewMore />} />
+        <Route path='/search/viewmore/payment' element={<Payment />} />
+      </Routes>
     </div>
   )
 }
