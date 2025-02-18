@@ -55,7 +55,7 @@ const Sidebar = () => {
                         </div>
                         <div className={Styles.title}>
                         
-                        <span className={Styles.elementname}><Link to='/user/profile' className={Styles.link}>  Account Info</Link></span>
+                        <span className={Styles.elementname}><Link to='/guide/profile' className={Styles.link}>  Account Info</Link></span>
                         <span className={Styles.elementsub}>manage your profile,bookings & more</span>
                         </div>
                         </div>

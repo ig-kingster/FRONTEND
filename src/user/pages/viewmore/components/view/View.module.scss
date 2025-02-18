@@ -1,237 +1,164 @@
-
 .container {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+}
 
-  .sub {
-    display: flex;
-    gap: 20px;
-    padding: 10px;
-  }
-  
-  .left {
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  
-    .img {
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-      gap: 10px;
-  
-      .images {
-        width: 100px;
-        height: 100px;
-        object-fit: cover;
+.sub {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-start;
+
+}
+
+.left, .center, .right {
+  flex: 1;
+}
+
+.left .img {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.images {
+
+  width: 120px;
+  height: 80px;
+  border-radius: 8px;
+  object-fit: cover;
+  transition: transform 0.3s;
+
+}
+
+.images:hover {
+  transform: scale(1.1);
+}
+
+.pkgimage img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.main {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.pkgtitle {
+  font-size: 26px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.rating, .price {
+  font-size: 20px;
+  color: #ff6f00;
+  margin-bottom: 10px;
+}
+
+.duration, .info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.discription {
+  margin-top: 15px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
+}
+
+.Bookbtn {
+  margin-top: 25px;
+  .btn {
+      background: linear-gradient(135deg, #ff6f00 0%, #ff8f00 100%);
+      padding: 12px 25px;
       border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+      text-align: center;
 
+      .link {
+          color: white;
+          text-decoration: none;
+          font-weight: bold;
       }
-    }
   }
-  
-  .center {
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 10px;
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  
-    .pkgimage {
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        padding: 10px;
-      .pkgimg {
-        width: 300px;
-        height: 300px;
-        border-radius: 12px;
-        object-fit: cover;
-        border: 1px solid #ddd;
-      }
-    }
-  }
-  
-  .right {
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 10px;
-    flex-grow: 2;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  
-    .main {
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        padding: 10px;
-      .pkgtitle {
-        margin-top: 50px;
-
-        font-size: 24px;
-      }
-  
-      .rating {
-        font-size: 20px;
-        display: flex;
-        align-items: center;
-        gap: 5px;
-      }
-  
-      .price {
-        font-size: 22px;
-        color: #e74c3c;
-      }
-  
-      .duration, .info {
-        display: flex;
-        gap: 10px;
-  
-        div {
-          display: flex;
-          align-items: center;
-          gap: 10px;
-        }
-      }
-  
-      .discription {
-        span {
-            color: orange;
-        }
-        p {
-          margin-top: 5px;
-        }
-      }
-      .Bookbtn{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 6vw;
-        height: 5vh;
-border-radius: 10px;
-        background-color: orange;
-        .btn{
-            .link{
-            text-decoration: none;
-            color: white;
-
-            }
-        }
-
-      }
-    }
-  
-    .submain {
-        padding: 10px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-
-      .hotel {
-        .hoteltitle {
-          display: flex;
-          gap: 10px;
-  
-          .hotellogo {
-            .img {
-              width: 50px;
-              height: 50px;
-              border-radius: 50%;
-            }
-          }
-  
-          .hotelname {
-            font-size: 18px;
-            font-weight: bold;
-          }
-        }
-  
-        .hotelinfo {
-          margin-top: 10px;
-          p {
-            margin-bottom: 5px;
-          }
-        }
-      }
-    }
-  }
-  
-  .feedbackSection {
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 10px;
-    margin-top: 40px;
-    background-color: #eae9e9;
-  
-    h2 {
-      font-size: 24px;
-      margin-bottom: 20px;
-    }
-  
-    .feedbackList {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-  
-      .feedbackItem {
-        background: #fff;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        padding: 15px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  
-        .feedbackHeader {
-          display: flex;
-          justify-content: space-between;
-          margin-bottom: 10px;
-  
-          .userName {
-            font-weight: bold;
-          }
-  
-          .userRating {
-            color: #f1c40f;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-          }
-        }
-  
-        .userComment {
-          font-size: 14px;
-          line-height: 1.5;
-        }
-      }
-    }
+  .btn:hover {
+      background: linear-gradient(135deg, #ff8f00 0%, #ffa726 100%);
   }
 }
-  
-  // Responsive Design
-  @media (max-width: 768px) {
-    .sub {
-      flex-direction: column;
-    }
-  
-    .left {
-      flex-direction: row;
-      overflow-x: auto;
-      .img {
-        .images {
-          width: 80px;
-          height: 80px;
-        }
+
+.submain {
+
+  margin-top: 25px;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.hotel {
+
+  .hoteltitle {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      .hotellogo img {
+          width: 60px;
+          height: 60px;
+          border-radius: 10px;
       }
-    }
-  
-    .center .pkgimage .pkgimg {
-      width: 250px;
-      height: 250px;
-    }
-  
-    .right {
-      .main .pkgtitle {
-        font-size: 20px;
-      }
-  
-      .main .price {
-        font-size: 18px;
-      }
-    }
   }
+  .hotelinfo {
+      font-size: 14px;
+      color: #666;
+  }
+}
+
+.feedbackSection {
+  margin-top: 30px;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  
+  h2 {
+      margin-bottom: 15px;
+      font-size: 24px;
+      font-weight: 600;
+      color: #333;
+  }
+  
+  .feedbackList {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+  }
+
+  .feedbackItem {
+      padding: 15px;
+      border-radius: 8px;
+      background: #f7f7f7;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  }
+
+  .feedbackHeader {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 16px;
+      font-weight: 500;
+      color: #444;
+  }
+}

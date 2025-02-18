@@ -31,38 +31,7 @@ const Main = () => {
         <input type="tel" className={Styles.phonetxt} />
       </div>
 
-      <div className={Styles.dob}>
-        <span className={Styles.doblabel}>Date of Birth</span>
-        <input type="date" className={Styles.dobtxt} />
-      </div>
-
-      <div className={Styles.address}>
-        <span className={Styles.addresslabel}>Address</span>
-        <textarea className={Styles.addresstxt} rows="3"></textarea>
-      </div>
-      <div className={Styles.location}>
-      <div className={Styles.state}>
-    <span className={Styles.statelabel} >State</span>
-    <select  className={Styles.statetxt}>
-    <option value="select">select</option>
-   </select>
-    
-      </div>
-      <div className={Styles.district}>
-    <span className={Styles.districtlabel}>District</span>
-    <select className={Styles.districttxt}>
-    <option value="select">select</option>
-   </select>
-        
-        </div>
-        <div className={Styles.place}>
-    <span  className={Styles.placelabel}>Place</span>
-    <select className={Styles.placetxt}>
-    <option value="select">select</option>
-    </select>
-        
-        </div>
-      </div>
+     
       <div className={Styles.update}>
         <button className={Styles.updatebtn}>Update</button>
       </div>

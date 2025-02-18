@@ -1,0 +1,99 @@
+.manageHotelContainer {
+  display: flex;
+  height: 100vh;
+  background-color: #fafafa;
+}
+
+.manageHotelSection {
+  flex: 1;
+  padding: 20px;
+  margin-left: 250px; // Adjust based on Sidebar width
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #262626;
+}
+
+.profileEditContainer {
+  display: flex;
+  gap: 40px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.profilePhotoSection {
+  text-align: center;
+  flex: 1;
+}
+
+.hotelPhoto {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.changePhotoButton {
+  background-color: #0095f6;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.changePhotoButton:hover {
+  background-color: #0077cc;
+}
+
+.hotelForm {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+label {
+  font-size: 14px;
+  color: #262626;
+}
+
+input,
+select {
+  padding: 8px;
+  border: 1px solid #dbdbdb;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: #fafafa;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #0095f6;
+}
+
+.submitButton {
+  background-color: #0095f6;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 20px;
+}
+
+.submitButton:hover {
+  background-color: #0077cc;
+}

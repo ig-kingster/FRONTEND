@@ -1,0 +1,78 @@
+
+    .Container{
+    border: 0.5px solid lightgray;
+    border-radius: 15px;
+    margin: 30px auto;
+    padding: 20px;
+    width: 50%;
+    background: #fff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+
+
+    .Sub {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+
+        .Text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            width: 60%;
+            gap: 20px;
+
+            .Field {
+                width: 100%;
+                font-size: 16px;
+            }
+
+            .Buttons {
+                width: 120px;
+                height: 40px;
+                background-color: #681468;
+                color: #fff;
+                font-weight: bold;
+                border-radius: 5px;
+                transition: 0.3s ease-in-out;
+
+                &:hover {
+                    background-color: #4a0e4a;
+                }
+            }
+        }
+
+        .Image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 35%;
+
+            img {
+                width: 100%;
+                max-width: 200px;
+                border-radius: 10px;
+            }
+        }
+    }
+}
+
+.TableContainer {
+    margin-top: 20px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.AddButton {
+    font-weight: bold !important;
+    transition: 0.3s ease-in-out;
+
+}
+.top{
+    display: flex;
+    padding: 10px;
+  }

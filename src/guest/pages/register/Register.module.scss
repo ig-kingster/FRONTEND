@@ -4,7 +4,6 @@
     margin-top: 200px;
     margin-left: -100px;
     margin-bottom: 50px;
-    // background: ;
     .form {
         display: flex;
         justify-content: center;
@@ -66,6 +65,7 @@
             .fields {
                 display: flex;
                 justify-content: center;
+                flex-direction: column;
 
                 .field {
                     display: flex;
