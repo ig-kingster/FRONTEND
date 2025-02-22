@@ -20,8 +20,7 @@ const UserRoutes = () => {
         <Route path='/settings' element={<Settings />} />
         <Route path='/viewmore' element={<ViewMore />} />
         <Route path='/search' element={<Search />} />
-        <Route path='/search/viewmore' element={<ViewMore />} />
-        <Route path='/search/viewmore/payment' element={<Payment />} />
+        <Route path='/payment' element={<Payment />} />
       </Routes>
     </div>
   )

@@ -87,7 +87,7 @@ const Result = () => {
           </div>
           <div className={Styles.explore}>
            <div className={Styles.exploretxt}><span >explore</span></div> 
-            <div className={Styles.exploreicon}><Link to={'./viewmore'}><EastIcon /></Link></div>
+            <div className={Styles.exploreicon}><Link to={'../viewmore'}><EastIcon /></Link></div>
           </div>
           </div>
         </div>

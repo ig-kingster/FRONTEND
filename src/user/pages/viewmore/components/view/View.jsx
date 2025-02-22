@@ -125,7 +125,7 @@ const View = () => {
 
                             <div className={Styles.Bookbtn}>
                                 <span className={Styles.btn}>
-                                    <Link to="./payment" className={Styles.link}>Book Now</Link>
+                                    <Link to="../payment" className={Styles.link}>Book Now</Link>
                                 </span>
                             </div>
                         </div>

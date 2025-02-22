@@ -37,38 +37,38 @@ const Sidebar = () => {
           </Link>
         </li>
         <li>
-          <Link to="./managehotel" className={Styles.menuItem}>
+          <Link to="../managehotel" className={Styles.menuItem}>
             <HotelIcon /> {isExpanded && 'Manage Hotel'}
           </Link>
         </li>
         <li>
-        <Link to="./packageadd" className={Styles.menuItem}>
+        <Link to="../packageadd" className={Styles.menuItem}>
                  <TourIcon/>  {isExpanded && 'Add Package'}
                 </Link>
         </li>
         <li>
-        <Link to="./packages" className={Styles.menuItem}>
+        <Link to="../packages" className={Styles.menuItem}>
                 <ViewPackageIcon/>  {isExpanded && 'View Packages'}
                 </Link>
         </li>
        
         <li>
-          <Link to="./guides" className={Styles.menuItem}>
+          <Link to="../guides" className={Styles.menuItem}>
             <GuideIcon /> {isExpanded && 'Guides'}
           </Link>
         </li>
         <li>
-          <Link to="./bookings" className={Styles.menuItem}>
+          <Link to="../bookings" className={Styles.menuItem}>
             <BookingIcon /> {isExpanded && 'Bookings'}
           </Link>
         </li>
         <li>
-          <Link to="./addguide" className={Styles.menuItem}>
+          <Link to="../addguide" className={Styles.menuItem}>
             <PersonAddIcon /> {isExpanded && 'Add Guide'}
           </Link>
         </li>
         <li>
-          <Link to="/logout" className={Styles.menuItem}>
+          <Link to="../logout" className={Styles.menuItem}>
             <ExitToAppIcon /> {isExpanded && 'Logout'}
           </Link>
         </li>

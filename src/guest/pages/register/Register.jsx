@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Styles from './Register.module.scss'
-import { Box } from '@mui/material'
+import { Box, Button } from '@mui/material'
 import axios from 'axios'
 const Register = () => {
   const [email, SetEmail] = useState("")
@@ -8,7 +8,10 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    if (!email.trim() || !password.trim()) {
+      alert("Please fill in all fields.");
+      return;
+    }
     try {
 
       const data = {
@@ -44,13 +47,13 @@ const Register = () => {
           </div>
           <Box component={'form'} onSubmit={handleSubmit} className={Styles.fields}>
             <div className={Styles.field}>
-              <input type='email' name='txtemail' id='txtemail' placeholder='enter email' className={Styles.email} value={email} onChange={(e) => SetEmail(e.target.value)} />
-              <input type='password' name='txtpassword' id='txtpassword' placeholder='enter password' className={Styles.password} value={password} onChange={(e) => SetPassword(e.target.value)} />
+              <input type='text' name='regemail' placeholder='enter email' className={Styles.email} value={email} onChange={(e) => SetEmail(e.target.value)} />
+              <input type='password' name='regpswd'placeholder='enter password' className={Styles.password} value={password} onChange={(e) => SetPassword(e.target.value)} />
 
             </div>
             <div className={Styles.btn}>
-              <input type='submit' name='registerbtn' id='registerbtn' value='Save'
-                className={Styles.submit} />
+              <Button type='submit'
+                className={Styles.submit} >SignUp</Button>
             </div>
           </Box>
           <div className={Styles.policy}>

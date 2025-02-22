@@ -58,3 +58,28 @@
         }
     }
 }}
+.traveller {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #e0e0e0;
+
+    .travellerName, .travellerNumber {
+        flex: 1;
+    }
+
+    .removeBtn {
+        background: #dc3545;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+
+        &:hover {
+            background: #a71d2a;
+        }
+    }
+}

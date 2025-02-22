@@ -1,8 +1,62 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Styles from './Login.module.scss'
-import CloseIcon from '@mui/icons-material/Close';
-import { Link } from 'react-router-dom';
-const login = () => {
+import { Box, Button } from '@mui/material';
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom';
+
+const Login = () => {
+
+  const [user_email, setEmail] = useState("")
+  const [user_password, setPassword] = useState("")
+  const navigate = useNavigate();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!user_email.trim() || !user_password.trim()) {
+      alert("Please fill in all fields.");
+      return;
+    }
+    try {
+      const data = {
+        user_email: user_email,
+        user_password: user_password
+      };
+      
+      const response = await axios.post('http://127.0.0.1:8000/login', data)
+      console.log('login successful:', response.data);
+
+      const {id,email,login} = response.data
+      if(login === "User"){
+        sessionStorage.setItem("uid",id)
+        sessionStorage.setItem("eid",email)
+
+        navigate("/user")
+        
+      }
+      // else if(login === "Admin"){
+      //   sessionStorage.setItem("aid",id)
+      //   navigate("/admin")
+      // }
+      // else if(login === "User"){
+      //   sessionStorage.setItem("uid",id)
+      //   navigate("/user")
+      // }
+      // else if(login === "DeliveryBoy"){
+      //   sessionStorage.setItem("dbid",id)
+      //   navigate("/deliveryBoy")
+      // }
+
+
+
+      setEmail("")
+      setPassword("")
+
+
+    } catch (error) {
+      console.error('Error registering:', error);
+    }
+  };
+
+
 return (
     <div className={Styles.logform}>
     <div className={Styles.form}>
@@ -12,7 +66,7 @@ return (
         <img src='https://images.emtcontent.com/nwhomfiles/freebooking.png' className={Styles.img}/>
       </div>
 
-      <div className={Styles.part2}>
+      <Box component={'form'} onSubmit={handleSubmit}  className={Styles.part2}>
       <div className={Styles.close}></div>
 
       <div className={Styles.titles}>
@@ -21,23 +75,23 @@ return (
       </div>
       <div className={Styles.fields}>
         <div className={Styles.field}>
-          <input type='email' name='email' id='email' placeholder='enter email' className={Styles.email}/>
-          <input type='password' name='password' id='password' placeholder='enter password' className={Styles.password}/>
+          <input type='text' placeholder='enter email' className={Styles.email}    value={user_email} onChange={(e) => setEmail(e.target.value)}/>
+          <input type='password'placeholder='enter password' className={Styles.password}   value={user_password}  onChange={(e) => setPassword(e.target.value)}/>
 
         </div>
-      </div>
+      </div>          
       <div className={Styles.btn}>
-        <input type='submit' name='register' id='register' value='Save'
-         className={Styles.submit}/>
+        <Button type='submit'
+         className={Styles.submit}> LogIn</Button>
       </div>
       <div className={Styles.policy}>
         <span className={Styles.policys}> By logging in,</span>
         <span className={Styles.policys}>I understand & agree to EaseMyTrip terms of use and privacy policy</span>
       </div>
-    </div>
+    </Box>
       </div>
     </div>
   )
 }
 
-export default login
+export default Login
