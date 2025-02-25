@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import Sidebar from "../../components/sidebar/Sidebar";
+import Styles from "./Editpackage.module.scss"; // Import the SCSS module
+import Navbar from "../../components/navbar/Navbar";
 
 const EditPackage = () => {
   const [packageDetails, setPackageDetails] = useState({
@@ -18,54 +21,53 @@ const EditPackage = () => {
   };
 
   return (
-    <div className="p-6 max-w-lg mx-auto bg-white shadow-md rounded-lg">
-      <h2 className="text-2xl font-bold mb-4">Edit Package</h2>
-      
-      <div className="mb-4">
-        <label className="block text-sm font-medium">Package Title</label>
+    <div className={Styles.navbar}>
+      <Navbar/>  
+    <div className={Styles.main}>
+      <Sidebar />
+      <div className={Styles.sub}>
+      <h2 className={Styles.title}>Edit Package</h2>
+
+      <div className={Styles.formGroup}>
+        <label>Package Title</label>
         <input
           type="text"
           value={packageDetails.title}
           onChange={(e) => handleChange("title", e.target.value)}
-          className="w-full border rounded p-2"
         />
       </div>
 
-      <div className="mb-4">
-        <label className="block text-sm font-medium">Description</label>
+      <div className={Styles.formGroup}>
+        <label>Description</label>
         <textarea
           value={packageDetails.description}
           onChange={(e) => handleChange("description", e.target.value)}
-          className="w-full border rounded p-2"
         />
       </div>
 
-      <div className="mb-4">
-        <label className="block text-sm font-medium">Price ($)</label>
+      <div className={Styles.formGroup}>
+        <label>Price ($)</label>
         <input
           type="number"
           value={packageDetails.price}
           onChange={(e) => handleChange("price", e.target.value)}
-          className="w-full border rounded p-2"
         />
       </div>
 
-      <div className="flex items-center mb-4">
+      <div className={Styles.checkboxGroup}>
         <input
           type="checkbox"
           checked={packageDetails.availability}
           onChange={(e) => handleChange("availability", e.target.checked)}
-          className="mr-2"
         />
-        <label className="text-sm font-medium">Available</label>
+        <label>Available</label>
       </div>
 
-      <button
-        onClick={handleUpdate}
-        className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600"
-      >
+      <button onClick={handleUpdate} className={Styles.updateButton}>
         Update Package
       </button>
+    </div>
+      </div>
     </div>
   );
 };

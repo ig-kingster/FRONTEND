@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Styles from './Booking.module.scss';
 import Sidebar from '../../components/sidebar/Sidebar';
+import Navbar from '../../components/navbar/Navbar';
 
 const Booking = () => {
   const [bookings, setBookings] = useState([]);
@@ -82,6 +83,8 @@ const Booking = () => {
     });
 
   return (
+    <div className={Styles.navbar}>
+      <Navbar/>  
     <div className={Styles.container}>
       <Sidebar />
       <div className={Styles.mainContent}>
@@ -196,6 +199,7 @@ const Booking = () => {
           <div className={Styles.noBookingsMessage}>No bookings found matching the criteria</div>
         )}
       </div>
+    </div>
     </div>
   );
 };

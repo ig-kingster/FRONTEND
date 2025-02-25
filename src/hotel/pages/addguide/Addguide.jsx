@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import Sidebar from "../../components/sidebar/Sidebar"
 import Styles from "./Addguide.module.scss"// Import SCSS Module
+import Navbar from "../../components/navbar/Navbar";
 
 const AddGuide = () => {
   const [guideData, setGuideData] = useState({
@@ -28,7 +29,10 @@ const AddGuide = () => {
   };
 
   return (
+    <div className={Styles.navbar}>
+      <Navbar/>  
     <div className={Styles.container}>
+      
       <Sidebar />
       <div className={Styles.mainContent}>
         <h2 className={Styles.heading}>Add New Guide</h2>
@@ -94,6 +98,8 @@ const AddGuide = () => {
         </div>
       </div>
     </div>
+    </div>
+
   );
 };
 

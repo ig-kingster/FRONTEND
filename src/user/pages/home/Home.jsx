@@ -4,14 +4,16 @@ import Banner from './components/banner/Banner'
 import TopPackage from './components/toppackage/TopPackage'
 import Trendingspot from './components/trendingspots/Trendingspot'
 import Footer from './components/footer/Footer'
-
+import Styles from './Home.module.scss'
+import Testimonials from './components/testimonials/Testimonials'
 const Home = () => {
   return (
     <div>
-        <Navbar/>
+        <Navbar />
         <Banner/>
         <Trendingspot/>
         <TopPackage/>
+        <Testimonials/>
         <Footer/>
     
     </div>

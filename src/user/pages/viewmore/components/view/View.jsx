@@ -6,8 +6,11 @@ import BedtimeIcon from '@mui/icons-material/Bedtime';
 import BedIcon from '@mui/icons-material/Bed';
 import GroupsIcon from '@mui/icons-material/Groups';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const View = () => {
+    const navigate = useNavigate();
+
     const feedbacks = [
         {
             id: 1,
@@ -124,10 +127,13 @@ const View = () => {
                             </div>
 
                             <div className={Styles.Bookbtn}>
-                                <span className={Styles.btn}>
-                                    <Link to="../payment" className={Styles.link}>Book Now</Link>
-                                </span>
-                            </div>
+            <button 
+                className={Styles.btn} 
+                onClick={() => navigate('../payment')}
+            >
+                Book Now
+            </button>
+        </div>
                         </div>
 
                         {/* Hotel Details */}
@@ -139,6 +145,8 @@ const View = () => {
                                             src={pkg.hotelimage}
                                             className={Styles.img}
                                             alt="Hotel Logo"
+                onClick={() => navigate('../hotelprofile')}
+
                                         />
                                     </div>
                                     <div className={Styles.hotelname}>

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Styles from "./Packages.module.scss"; // SCSS module
 import Sidebar from "../../components/sidebar/Sidebar";
+import { Link } from "react-router-dom";
+import Navbar from "../../components/navbar/Navbar";
 
 // Mock API functions
 const fetchPackages = () => {
@@ -73,7 +75,8 @@ const PackagePage = () => {
   };
 
   return (
-      
+    <div className={Styles.navbar}>
+      <Navbar/>  
     <div className={Styles.packagePageContainer}>
    
     <div className={Styles.main}>  <Sidebar/></div>
@@ -109,12 +112,14 @@ const PackagePage = () => {
               ))}
             </div>
             <div className={Styles.actions}>
-              <button
+              {/* <button
                 className={Styles.editButton}
                 onClick={() => alert(`Edit package ${pkg.packagehead_id}`)}
               >
                 Edit
-              </button>
+              </button> */}
+                          <Link to='../editpackage'className={Styles.editButton}>Edit</Link>
+
               <button
                 className={Styles.deleteButton}
                 onClick={() => handleDelete(pkg.packagehead_id)}
@@ -125,6 +130,7 @@ const PackagePage = () => {
           </div>
         ))}
       </div>
+    </div>
     </div>
     </div>
   );

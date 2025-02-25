@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Styles from "./ManageHotel.module.scss"; // SCSS module
+import Navbar from "../../components/navbar/Navbar";
 
 // Mock API function for fetching hotel data
 const fetchHotelData = (hotelId) => {
@@ -83,6 +84,8 @@ const ManageHotel = () => {
   };
 
   return (
+    <div className={Styles.navbar}>
+      <Navbar/>  
     <div className={Styles.manageHotelContainer}>
       <Sidebar />
       <div className={Styles.manageHotelSection}>
@@ -204,6 +207,7 @@ const ManageHotel = () => {
           </form>
         </div>
       </div>
+    </div>
     </div>
   );
 };

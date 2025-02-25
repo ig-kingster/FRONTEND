@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Styles from './Packageadd.module.scss'
+import Navbar from "../../components/navbar/Navbar";
 const Packageadd = () => {
     const [packageData, setPackageData] = useState({
       packageName: "",
@@ -25,6 +26,8 @@ const Packageadd = () => {
     };
   
     return (
+      <div className={Styles.navbar}>
+      <Navbar/>  
       <div className={Styles.container}>
         <Sidebar />
         <div className={Styles.mainContent}>
@@ -78,7 +81,7 @@ const Packageadd = () => {
           </div>
         </div>
       </div>
-    
+    </div>
 
   )
 }

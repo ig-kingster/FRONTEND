@@ -1,6 +1,7 @@
 import React from "react";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Styles from "./Dashboard.module.scss"; // SCSS module
+import Navbar from "../../components/navbar/Navbar";
 
 const Dashboard = () => {
   // Sample Hotel Data (Replace with API Data)
@@ -62,6 +63,8 @@ const Dashboard = () => {
   );
 
   return (
+    <div className={Styles.navbar}>
+      <Navbar/>  
     <div className={Styles.dashboardContainer}>
       <Sidebar />
       <div className={Styles.profileSection}>
@@ -69,6 +72,7 @@ const Dashboard = () => {
         {renderStats()}
         {renderPackages()}
       </div>
+    </div>
     </div>
   );
 };

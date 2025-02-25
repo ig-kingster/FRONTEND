@@ -1,10 +1,15 @@
+.main{
+
+}
 .Container {
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    gap: 10px;
     padding: 0.5rem 2rem;
     background-color: #ffffff; 
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    gap: 10rem;
     .Image {
         display: flex;
         width: 50%;
@@ -21,7 +26,6 @@
         background-color: #dedede;
         border-radius: 5px;
         width: 50%;
-        margin-right: 5rem;
         .txt {
             border: none;
             border-radius: 2px 0 0 2px;
@@ -45,7 +49,15 @@
 
     }
 
-
+    .navbar {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 10px 20px;
+        background-color: #ffffff;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      }
       
       .profileMenu {
         display: flex;
@@ -78,7 +90,6 @@
 
   
   .user{
-    display: flex;
     border: 1px solid #2c73d2;
     padding: 10px;
     border-radius: 5px;
@@ -88,47 +99,46 @@
     background-color: #2c73d2;
     color: #dedede;
   }
-
-  // .notificationContainer {
-  //   display: flex;
-  //   align-items: center;
-  
-  //   .MuiIconButton-root {
-  //     color: #fff; // Adjust color as needed
-  //     transition: all 0.3s ease;
-  
-  //     &:hover {
-  //       background-color: rgba(255, 255, 255, 0.1);
-  //     }
-  //   }
-  // }
-
   .notificationContainer {
+    position: relative;
     display: flex;
     align-items: center;
-    position: relative;
+  
+    .MuiIconButton-root {
+      color: #fff; // Adjust color as needed
+      transition: all 0.3s ease;
+  
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+    }
   }
   
-  .notificationsWrapper {
-    position: fixed;
-    top: 90px;
-    right: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    z-index: 1000;
-  }
+  // Notification Menu Styling
+  .MuiMenu-root {
+    .MuiPaper-root {
+      width: 250px;
+      max-height: 300px;
+      overflow-y: auto;
+      border-radius: 8px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
   
-  .notificationItem {
-    background-color: #ffffff;
-    color: #333;
-    padding: 12px 16px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    min-width: 250px;
-    font-size: 14px;
-    font-weight: 500;
-    opacity: 0.95;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-  }
+    .MuiMenuItem-root {
+      font-size: 14px;
+      padding: 10px;
+      transition: background 0.3s ease;
   
+      &:hover {
+        background: rgba(0, 0, 0, 0.05);
+      }
+    }
+  
+    .noNotifications {
+      text-align: center;
+      color: #999;
+    }
+  }
+  .notificationContainer{
+    margin-left: 20rem;
+  }

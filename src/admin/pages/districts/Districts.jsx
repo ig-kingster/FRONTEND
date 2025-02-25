@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import Styles from './district.module.scss'
-import { Box, Button, TextField } from '@mui/material'
+import { Box, Button, Paper, TextField } from '@mui/material'
 import { MyTheme } from '../../context/ThemeContext'
 import Sidebar from '../../components/sidebar/Sidebar'
 import Navbar from '../../components/navbar/Navbar'
 import axios from 'axios'
+import { DataGrid } from '@mui/x-data-grid'
 
 
 const Districts = () => {
@@ -12,6 +13,7 @@ const Districts = () => {
   const [dname, setDname] = useState("")
   const [state_id, setState] = useState("")
   const [data, setData] = useState([])
+  const paginationModel = { page: 0, pageSize: 5 };
 
   const handleSubmit = async (e) => {
       e.preventDefault();
@@ -38,6 +40,15 @@ const Districts = () => {
   useEffect(() => {
     fetchState()
   }, [])
+
+
+  const columns = [
+    { field: "id", headerName: "ID", width: 100 },
+    { field: "state_name", headerName: "State Name", width: 200 },
+    { field: "district_name", headerName: "District Name", width: 200 },
+
+
+];
 
   return (
     <MyTheme.Provider value={{ check, setCheck }}>
@@ -71,6 +82,7 @@ const Districts = () => {
 
           </Box>
         </div>
+   
       </div>
     </MyTheme.Provider>
   )

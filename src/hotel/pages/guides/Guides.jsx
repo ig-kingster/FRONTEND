@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Styles from "./Guides.module.scss"; // SCSS module
+import Sidebar from "../../components/sidebar/Sidebar";
+import Navbar from "../../components/navbar/Navbar";
 
 // Mock API function to fetch guides
 const fetchGuides = () => {
@@ -70,6 +72,10 @@ const Guides = () => {
   };
 
   return (
+    <div className={Styles.navbar}>
+      <Navbar/>  
+    <div className={Styles.main}>
+<Sidebar/>
     <div className={Styles.guidesContainer}>
       <h1>Guides Management</h1>
       <div className={Styles.guidesList}>
@@ -104,6 +110,8 @@ const Guides = () => {
         ))}
       </div>
     </div>
+    </div>
+</div>
   );
 };
 

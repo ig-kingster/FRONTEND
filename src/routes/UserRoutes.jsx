@@ -8,6 +8,7 @@ import Bookings from '../user/pages/booking/Bookings'
 import ViewMore from '../user/pages/viewmore/ViewMore'
 import Search from '../user/pages/search/Search'
 import Payment from '../user/pages/payment/Payment'
+import HotelProfile from '../user/pages/hotelprofile/HotelProfile'
 
 const UserRoutes = () => {
   return (
@@ -21,6 +22,8 @@ const UserRoutes = () => {
         <Route path='/viewmore' element={<ViewMore />} />
         <Route path='/search' element={<Search />} />
         <Route path='/payment' element={<Payment />} />
+        <Route path='/hotelprofile' element={<HotelProfile />} />
+
       </Routes>
     </div>
   )

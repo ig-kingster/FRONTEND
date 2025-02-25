@@ -6,9 +6,9 @@ import PersonIcon from '@mui/icons-material/Person';
 import Styles from './BaseMenu.module.scss'
 import Login from '../../pages/login/Login';
 import Register from '../../pages/register/Register';
-
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import Dialog from '@mui/material/Dialog';
-
+import LockPersonIcon from '@mui/icons-material/LockPerson';
 import Slide from '@mui/material/Slide';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -63,7 +63,7 @@ export default function BasicMenu() {
         onClick={handleClick}
       >
       <PersonIcon  className={Styles.icon}/> 
-      <span className={Styles.name}>SignUp</span>
+      <span className={Styles.name}>Accounts</span>
       </Button>
       <Menu
         id="basic-menu"
@@ -74,8 +74,8 @@ export default function BasicMenu() {
           'aria-labelledby': 'basic-button',
         }}
       >
-        <MenuItem onClick={LoginOpen}>Login</MenuItem>
-        <MenuItem onClick={SignupOpen}>Sign Up</MenuItem>
+        <MenuItem onClick={LoginOpen}><LockPersonIcon/> Login</MenuItem>
+        <MenuItem onClick={SignupOpen}><PersonAddIcon/> User Sign Up</MenuItem>
 
         {/* <MenuItem onClick={handleClose}>Logout</MenuItem> */}
       </Menu>

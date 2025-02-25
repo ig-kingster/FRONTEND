@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const TopPackage = () => {
 
 const packages = [
-{
+  {
     id: 1,
     name: 'Kashmir',
     image: 'https://images.emtcontent.com/holiday-img/home-img/kashmir-handpckd.webp',
@@ -16,52 +16,53 @@ const packages = [
   {
     id: 2,
     name: 'Goa',
-    image: 'https://images.emtcontent.com/holiday-img/home-img/kashmir-handpckd.webp',
+    image: 'https://images.emtcontent.com/holiday-img/home-img/goa-handpckd.webp',
 
     price: '$200',
   },
   {
     id: 3,
     name: 'Manali',
-    image: 'https://images.emtcontent.com/holiday-img/home-img/kashmir-handpckd.webp',
+    image: 'https://images.emtcontent.com/holiday-img/home-img/himachal-handpckd.webp',
 
     price: '$300',
   },
   {
     id: 4,
     name: 'Leh-Ladakh',
-    image: 'https://images.emtcontent.com/holiday-img/home-img/kashmir-handpckd.webp',
+    image: 'https://images.emtcontent.com/holiday-img/home-img/north-east-handpckd.webp',
 
     price: '$400',
   },
   {
     id: 5,
     name: 'Kerala',
-    image: 'https://images.emtcontent.com/holiday-img/home-img/kashmir-handpckd.webp',
+    image: 'https://images.emtcontent.com/holiday-img/home-img/kerala-handpckd.webp',
 
     price: '$500',
   },
   {
     id: 6,
     name: 'Rajasthan',
-    image: 'https://images.emtcontent.com/holiday-img/home-img/kashmir-handpckd.webp',
+    image: 'https://images.emtcontent.com/holiday-img/home-img/rajesthan-handpckd.webp',
 
     price: '$600',
   },
   {
     id: 7,
     name: 'Andaman',
-    image: 'https://images.emtcontent.com/holiday-img/home-img/kashmir-handpckd.webp',
+    image: 'https://images.emtcontent.com/holiday-img/home-img/andaman-handpckd.webp',
 
     price: '$700',
   },
   {
     id: 8,
-    name: 'Sikkim',
-    image: 'https://images.emtcontent.com/holiday-img/home-img/kashmir-handpckd.webp',
+    name: 'Gujarat',
+    image: 'https://images.emtcontent.com/holiday-img/home-img/gujarat-handpckd.webp',
 
     price: '$800',
   },
+  
   
 
 ]
