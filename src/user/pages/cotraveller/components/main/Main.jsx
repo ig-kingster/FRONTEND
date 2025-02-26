@@ -25,7 +25,7 @@ const Main = () => {
         <div className={Styles.container}>
             <div className={Styles.sub}>
                 <div className={Styles.title}>
-                    <h2 className={Styles.styledTitle}>🚀 Add Co-Travellers</h2>
+                    <h2 className={Styles.styledTitle}> Add Co-Travellers</h2>
                 </div>
                 <div className={Styles.cotravellers}>
                     <div className={Styles.name}>
@@ -50,7 +50,7 @@ const Main = () => {
                 </div>
                 <div className={Styles.list}>
                     <div className={Styles.listTitle}>
-                        <h3 className={Styles.styledListTitle}>📜 Co-Travellers List</h3>
+                        <h3 className={Styles.styledListTitle}> Co-Travellers List</h3>
                     </div>
                     {travellers.map((traveller, index) => (
                         <div key={index} className={Styles.traveller}>

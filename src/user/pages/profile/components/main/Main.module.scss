@@ -1,312 +1,238 @@
+
+$primary-color: #007bff;
+$secondary-color: #f8f9fa;
+$border-color: #ddd;
+$input-bg: #ffffff;
+$button-bg: #007bff;
+$button-hover-bg: #0056b3;
+$label-color: #444;
+$shadow-color: rgba(0, 0, 0, 0.1);
 .main {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 50px;
-    gap: 30px;
-.sub{
-    display: flex;
-    flex-direction: column;
+
     padding: 20px;
-    background-color: rgb(255, 255, 255);
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: white;
+    margin: 30px;
     border-radius: 10px;
-box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
-margin-top: 50px;
-gap: 30px;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
 
-    .title{
-
-        }
-.name{
-    display: flex;
-
-    .firstname{
-    display: flex;
-    flex-direction: column;
-padding: 10px;
-.fnamelabel{
-    
-}
-    
-    .fnametxt{
-        width: 24vw;
-        height: 4vh;
-
-    }
-}
-.lastname{
-    display: flex;
-    flex-direction: column;
-padding: 10px;
-
-
-.snamelabel{
-    
-}
-    
-    .snametxt{
-        width: 24vw;
-        height: 4vh;
-
-    }
-}
-}
-.email{
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-
-
-    .emaillabel{
-
-    }
-.emailtxt{
-    height: 4vh;
-
-
-}
-}
-.phone{
-    display: flex;
-    flex-direction: column;
-padding: 10px;
-
-
-
-    .phonelabel{
-
-    }
-.phonetxt{
-    
-    height: 4vh;
-
-}
-
-
-}
-.dob{
-    display: flex;
-    flex-direction: column;
-padding: 10px;
-
-.doblabel{
-
-}
-.dobtxt{
-    height: 4vh;
-
-}
-
-
-
-}
-.address{
-    display: flex;
-    flex-direction: column;
-padding: 10px;
-
-.addresslabel{
-
-}
-.addresstxt{
- 
-
-}
-
-
-}
-.location{
-    display: flex;
-    
-    .state{
-        display: flex;
-        flex-direction: column;
-        padding: 10px;
-        .statelabel{
-
-        }
-        .statetxt{
- 
-            width: 15vw;
-           height: 4vh;
-        }
-
-    }
-    .district{
-        display: flex;
-        flex-direction: column;
-padding: 10px;
-        
-.districtlabel{
-
-}
-.districttxt{
-    width: 15vw;
-    height: 4vh;
-}
-
-
-    }
-    .place{
-        display: flex;
-        flex-direction: column;
-        padding: 10px;
-
-        .placelabel{
-
-        }
-        .placetxt{
- 
-            width: 18vw;
-           height: 4vh;
-        }
-
-    }
-}
-.update{
-    display: flex;
-    justify-content: flex-end;
-    .updatebtn{
-        color: white;
-        background-color: rgb(66, 255, 66);
-        border: none;
-        border-radius: 30px;
-    width: 5vw;
-    height: 5vh;
-
-
-    }
-}
-
-}
-.images{
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    background-color: rgb(255, 255, 255);
-    border-radius: 10px;
-box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
-gap: 30px;
-.profile{
-display: flex;
-flex-direction: column;
-
-    .photolabel{
-
-    
-    }
-    .photolabel1{
-        display: flex;
-        width: 50vw;
-
-        padding: 8px;
-        font-size: 14px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        outline: none;
-        transition: border-color 0.3s ease;
-    .photoicon{
-display: flex;
-align-items: center;
-
-    }
-    .file{
-       
-        display: none;
-        
-    }
-}
-}
-.proof{
-    display: flex;
-    flex-direction: column;
-    .prooflabel{
-
-    }
-    .prooflabel1{
-        width: 50vw;
-
-        padding: 8px;
-        font-size: 14px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        outline: none;
-        transition: border-color 0.3s ease;
-        .prooficon{
-            display: flex;
-            align-items: center;
-        }
-    .file{
-        
-        display: none;
+  }
   
-    }
-}
-}
-
-.update{
+  .profileContainer {
     display: flex;
-    justify-content: flex-end;
-    .updatebtn{
-        color: white;
-        background-color: rgb(66, 255, 66);
-        border: none;
-        border-radius: 30px;
-    width: 5vw;
-    height: 5vh;
-
-
-    }
-}
-
-}
-.password{
-
+    align-items: center;
+    padding: 30px;
+    border-radius: 16px;
+    max-width: 1200px;
+    width: 50rem;
+    margin: auto;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .profileContainer:hover {
+    transform: translateY(-5px);
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 15px;
+  }
+  
+  .imageSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #75d5fe, #3f24d6, #02006b);
+    padding: 5px;
+    overflow: hidden;
+    margin-top: -90%;
+  }
+  
+  .profileImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #fff;
+  }
+  
+  .placeholderImage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    font-size: 16px;
+    color: #666;
+    background: #ddd;
+    border-radius: 50%;
+  }
+  
+  .details {
     display: flex;
     flex-direction: column;
-    padding: 20px;
-    background-color: rgb(255, 255, 255);
-    border-radius: 10px;
-box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
-gap: 30px;
-    .title{
+    gap: 15px;
+    width: 100%;
+  }
+  
+  .inputGroup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .label {
+    font-size: 15px;
+    font-weight: bold;
+    color: #262626;
+    margin-bottom: -13px;
+    z-index: 1;
+    background-color: white;
+    margin-left: -280px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .txtfld {
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #dbdbdb;
+    border-radius: 8px;
+    font-size: 15px;
+    background: #fafafa;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
 
-    }
-    .currentpassword{
-        display: flex;
-        flex-direction: column;
-        .currentpswdlbel{
+  
 
-        }
-        .currentpswd{
-            width: 50vw;
-            height: 4vh;
-        }
-    }
-    .newpassword{
-        display: flex;
-flex-direction: column;
-        .newpswdlabel{
+  .editButton{
+    position: absolute;
+    margin-top: -210px;
+    margin-left: 100px;
+    background-color: #0095f6;
+    border: none;
+    border-radius: 100%;
+    padding: 10px;  
+    font-size: larger;
+    display: flex;
+    justify-content: center;
 
-        }
-        .newpswd{
-            width: 50vw;
-
-            height: 4vh;
-        }
-    }
-    .update{
-        display: flex;
-        justify-content: flex-end;
-        .updatebtn{
-            color: white;
-            background-color: rgb(66, 255, 66);
-            border: none;
-            border-radius: 30px;
-        width: 5vw;
-        height: 5vh;
-    
-        }
-    }
+  }
+  .editicon {
+    color:  #ffffff ;
+  }
+  
+ 
+.MuiDialog-root {
+  .MuiDialog-paper {
+    border-radius: 12px;
+    box-shadow: 0px 5px 20px $shadow-color;
+    padding: 25px;
+    background: $secondary-color;
+    animation: fadeIn 0.3s ease-in-out;
+  }
 }
 
+.sub {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
+
+.title {
+  font-size: 22px;
+  font-weight: bold;
+  color: $primary-color;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  border-bottom: 2px solid $primary-color;
+  padding-bottom: 5px;
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 12px;
+  font-size: 14px;
+  border: 1px solid $border-color;
+  border-radius: 6px;
+  background: $input-bg;
+  transition: all 0.3s ease-in-out;
+  
+//   &:focus {
+//     border-color: $primary-color;
+//     outline: none;
+//   }
+}
+
+label {
+  font-size: 14px;
+  font-weight: 600;
+  color: $label-color;
+}
+
+.location, .images, .password {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.update {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.updatebtn {
+  background-color: $button-bg;
+  color: white;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: background 0.3s ease-in-out;
+border: none;
+
+  &:hover {
+  background-color: rgb(23, 87, 176);
+
+  }
+}
+
+// Fancy file upload button
+.photolabel1 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border: 2px dashed $primary-color;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    background-color: rgba(106, 178, 255, 0.1);
+  }
+}
+
+// Animations
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
