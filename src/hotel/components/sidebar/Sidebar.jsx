@@ -32,7 +32,7 @@ const Sidebar = () => {
       </div>
       <ul className={Styles.menu}>
         <li>
-          <Link to="/" className={`${Styles.menuItem} ${Styles.active}`}>
+          <Link to="/hotel" className={`${Styles.menuItem} ${Styles.active}`}>
             <DashboardIcon /> {isExpanded && 'Dashboard'}
           </Link>
         </li>

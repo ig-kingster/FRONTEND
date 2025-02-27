@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import Styles from './Register.module.scss'
 import { Box, Button } from '@mui/material'
 import axios from 'axios'
+import { toast } from 'react-toastify';
+
 const Register = () => {
   const [email, SetEmail] = useState("")
   const [password, SetPassword] = useState("")
@@ -9,7 +11,9 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!email.trim() || !password.trim()) {
-      alert("Please fill in all fields.");
+           toast.error("Please fill in all fields.");
+     
+
       return;
     }
     try {
@@ -21,6 +25,7 @@ const Register = () => {
       }
       const response = await axios.post('http://127.0.0.1:8000/user', data)
       console.log('User Register successful:', response.data);
+      toast.success(" Register successful");
       SetEmail("")
       SetPassword("")
     } catch (error) {

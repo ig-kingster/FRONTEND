@@ -3,6 +3,7 @@ import Styles from './Login.module.scss'
 import { Box, Button } from '@mui/material';
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const Login = () => {
 
@@ -12,7 +13,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!user_email.trim() || !user_password.trim()) {
-      alert("Please fill in all fields.");
+      toast.error("Please fill in all fields.");
       return;
     }
     try {
@@ -23,15 +24,22 @@ const Login = () => {
       
       const response = await axios.post('http://127.0.0.1:8000/login', data)
       console.log('login successful:', response.data);
+      toast.success("Login successful!");
 
       const {id,email,login} = response.data
       if(login === "User"){
         sessionStorage.setItem("uid",id)
-        sessionStorage.setItem("eid",email)
-
         navigate("/user")
-        
       }
+      else if(login === "Hotel"){
+        sessionStorage.setItem("uid",id)
+        navigate("/hotel")
+      }
+      
+      else{
+        toast.error("Login not found. Please check your credentials.");
+      }
+      
       // else if(login === "Admin"){
       //   sessionStorage.setItem("aid",id)
       //   navigate("/admin")
@@ -53,6 +61,10 @@ const Login = () => {
 
     } catch (error) {
       console.error('Error registering:', error);
+   
+      toast.error("Something went wrong. Please try again.");
+
+
     }
   };
 

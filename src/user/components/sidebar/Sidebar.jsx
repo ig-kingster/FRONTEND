@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Styles from './Sidebar.module.scss'
 import PersonIcon from '@mui/icons-material/Person';
 import ConfirmationNumberIcon from '@mui/icons-material/ConfirmationNumber';
@@ -8,7 +8,40 @@ import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import MilitaryTechIcon from '@mui/icons-material/MilitaryTech';
 import VerifiedIcon from '@mui/icons-material/Verified';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { toast } from 'react-toastify';
+
 const Sidebar = () => {
+
+
+useEffect(() => {
+    fetchDetails();
+  }, []);
+
+  const [name, setName] = useState("")
+  
+  const uid = sessionStorage.getItem("uid");
+  const fetchDetails = async () => {
+    try {
+      const response = await axios.get(`http://127.0.0.1:8000/username/${uid}`);
+      console.log(response.data);
+    
+      setName(response.data?.user_name)
+      
+if(response.data)
+{
+  toast.success("User Data Found");
+
+}
+
+      console.log("User Data:", response.data); // Debugging
+
+    } catch (error) {
+      console.error("Error fetching states:", error);
+      toast.error("Error fetching states:");
+
+    }
+  };
     return (
 
         <div className={Styles.main}>
@@ -21,7 +54,7 @@ const Sidebar = () => {
                 <div className={Styles.mainname}>
                     
                     <div className={Styles.name}>
-                    <span className={Styles.username}>Mr.User</span>
+                    <span className={Styles.username}>{name}</span>
                     </div>
 
                     <div className={Styles.verify}>

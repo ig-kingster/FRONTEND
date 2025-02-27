@@ -88,7 +88,7 @@ const Navbar = () => {
             style={{ display: "flex", alignItems: "center", cursor: "pointer" }}
           >
             <AccountCircle style={{ marginRight: "5px" }} />
-            {userEmail}
+            {/* {userEmail} */}
           </Typography>
 
           {/* User Dropdown Menu */}

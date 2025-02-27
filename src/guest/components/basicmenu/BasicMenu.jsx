@@ -10,6 +10,7 @@ import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import Dialog from '@mui/material/Dialog';
 import LockPersonIcon from '@mui/icons-material/LockPerson';
 import Slide from '@mui/material/Slide';
+import HotelRegistration from '../../pages/hotelregistration/Hotelregistration';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
@@ -50,7 +51,19 @@ export default function BasicMenu() {
     setlogin(false);
   };
 
+//hotelregister
 
+const [hsignup, sethSignup] = React.useState(false);
+
+const SignuphOpen = () => {
+  sethSignup(true);
+  setAnchorEl(null);
+
+};
+
+const SignuphClose = () => {
+  sethSignup(false); 
+};
 
 
   return (
@@ -76,6 +89,8 @@ export default function BasicMenu() {
       >
         <MenuItem onClick={LoginOpen}><LockPersonIcon/> Login</MenuItem>
         <MenuItem onClick={SignupOpen}><PersonAddIcon/> User Sign Up</MenuItem>
+        <MenuItem onClick={SignuphOpen}><PersonAddIcon/> Hotel Sign Up</MenuItem>
+
 
         {/* <MenuItem onClick={handleClose}>Logout</MenuItem> */}
       </Menu>
@@ -102,14 +117,14 @@ export default function BasicMenu() {
         
       </Dialog>
       <Dialog
-        open={signup}
+        open={hsignup}
         TransitionComponent={Transition}
         keepMounted
-        onClose={SignupClose}
+        onClose={SignuphClose}
         aria-describedby="alert-dialog-slide-description"
         maxWidth='md'
-        PaperProps={{style: {width:'2000px',      backgroundColor: 'transparent',   boxShadow: 'none', }}}
-      > <Register/>
+        PaperProps={{style: {width:'2000px',backgroundColor: 'transparent',   boxShadow: 'none', }}}
+      > <HotelRegistration/>
         
       </Dialog>
 

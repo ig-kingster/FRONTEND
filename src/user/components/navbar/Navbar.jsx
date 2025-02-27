@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Styles from './Navbar.module.scss';
 import SearchSharpIcon from '@mui/icons-material/SearchSharp';
 import { Link, useNavigate } from 'react-router-dom';
@@ -6,9 +6,38 @@ import { AccountCircle } from "@mui/icons-material";
 import { IconButton, Badge, Menu, MenuItem, Typography } from "@mui/material";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import { motion, AnimatePresence } from "framer-motion";
+import axios from 'axios';
+import { toast } from 'react-toastify';
+
 const Navbar = () => {
-  const userId = sessionStorage.getItem("uid");
-  const userEmail = sessionStorage.getItem("eid");
+ 
+useEffect(() => {
+  fetchDetails();
+}, []);
+
+const [email, setEmail] = useState("")
+
+const uid = sessionStorage.getItem("uid");
+const fetchDetails = async () => {
+  try {
+    const response = await axios.get(`http://127.0.0.1:8000/useremail/${uid}`);
+    console.log(response.data);
+  
+    setEmail(response.data?.user_email)
+    
+if(response.data)
+{
+toast.success("User Data Found");
+
+}
+
+    console.log("User Data:", response.data); // Debugging
+
+  } catch (error) {
+    toast.error("Error fetching user:");
+
+  }
+};
   const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = useState(null);
 
@@ -170,7 +199,7 @@ const Navbar = () => {
           style={{ display: "flex", alignItems: "center", cursor: "pointer", }}
         >
           <AccountCircle style={{ marginRight: "5px" }} />
-          {userEmail}
+          {email}
         </Typography>
 
         {/* Dropdown Menu */}
