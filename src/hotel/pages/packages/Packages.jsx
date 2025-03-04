@@ -1,139 +1,175 @@
-import React, { useState, useEffect } from "react";
-import Styles from "./Packages.module.scss"; // SCSS module
-import Sidebar from "../../components/sidebar/Sidebar";
-import { Link } from "react-router-dom";
-import Navbar from "../../components/navbar/Navbar";
 
-// Mock API functions
-const fetchPackages = () => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve([
-        {
-          packagehead_id: 1,
-          packagehead_days: 5,
-          packagehead_price: 5000,
-          packagehead_details: "5-Day Summer Package",
-          packagehead_status: "Active",
-          packagehead_count: 10,
-          packagehead_room_count: 20,
-          packagebody: [
-            {
-              packagebody_id: 1,
-              packagebody_details: "Day 1: Beach Visit",
-              place_id: 1,
-              gallery: [
-                {
-                  gallery_id: 1,
-                  gallery_file: "/images/beach.jpg",
-                  gallery_description: "Beach View",
-                },
-              ],
-            },
-          ],
-        },
-      ]);
-    }, 1000); // Simulated delay
-  });
-};
 
-const deletePackage = (packagehead_id) => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve({ message: `Package ${packagehead_id} deleted successfully!` });
-    }, 1000); // Simulated delay
-  });
-};
 
-const PackagePage = () => {
-  const [packages, setPackages] = useState([]);
+  import React, { useState, useEffect } from "react";
+  import Styles from "./Packages.module.scss";
+  import Sidebar from "../../components/sidebar/Sidebar";
+  import { Link } from "react-router-dom";
+  import Navbar from "../../components/navbar/Navbar";
+  import { 
+    Delete, 
+    Edit, 
+    Hotel, 
+    CalendarToday, 
+    Attractions, 
+    LocalOffer,
+    CheckCircle,
+    Cancel
+  } from "@mui/icons-material";
+  import axios from "axios";
+  import { toast } from "react-toastify";
 
-  // Fetch packages on component mount
-  useEffect(() => {
+
+
+  const PackagePage = () => {
+    const [packages, setPackages] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const hid = sessionStorage.getItem("hid");
+
+
+    useEffect(() => {
+      fetchData();
+    }, []);
+
+
     const fetchData = async () => {
       try {
-        const data = await fetchPackages();
-        setPackages(data);
+        const response = await axios.get(`http://127.0.0.1:8000/packages/${hid}`);
+        console.log("API Response:", response.data);  // Debugging step
+        const data = response.data;
+
+        const packagesArray = Array.isArray(data) ? data : [data];
+        setPackages(packagesArray);
       } catch (error) {
         console.error("Error fetching packages:", error);
+      } finally {
+        setLoading(false);
       }
     };
-    fetchData();
-  }, []);
+    
+    const handleDelete = async (package_id) => {
+      try {
+        await axios.delete(`http://127.0.0.1:8000/deletepkg/${package_id}`);
+        setPackages((prev) => prev.filter((pkg) => pkg._id !== package_id));
+        toast.success("Package deleted successfully!");
+      } catch (error) {
+        console.error("Error deleting package:", error);
+        toast.error("Failed to delete package.");
+      }
+    };
+    
+    // const fetchPackages = async () => {
+    //   try {
+    //     const response = await axios.get(`http://127.0.0.1:8000/packages/${hid}`, data);
 
-  // Handle package deletion
-  const handleDelete = async (packagehead_id) => {
-    try {
-      const response = await deletePackage(packagehead_id);
-      alert(response.message);
-      setPackages((prev) =>
-        prev.filter((pkg) => pkg.packagehead_id !== packagehead_id)
-      );
-    } catch (error) {
-      console.error("Error deleting package:", error);
-    }
+    //     if (!response.ok) {
+    //       throw new Error("Failed to fetch packages");
+    //     }
+    //     const data = await response.json();
+    //     return data;
+    //   } catch (error) {
+    //     console.error("Error fetching packages:", error);
+    //     return [];
+    //   }
+    // };
+
+
+    return (
+      <div className={Styles.container}>
+        <Navbar/>  
+        <div className={Styles.dashboardWrapper}>
+          <Sidebar />
+          <div className={Styles.mainContent}>
+            <div className={Styles.header}>
+              <h1><Hotel /> Travel Packages</h1>
+              <Link to="../packageadd" className={Styles.addButton}>
+                + Create New Package
+              </Link>
+            </div>
+
+            {loading ? (
+              <div className={Styles.loading}>
+                <div className={Styles.loader}></div>
+                <p>Loading Packages...</p>
+              </div>
+            ) : (
+              <div className={Styles.packageGrid}>
+                {packages.map((pkg) => (
+
+                  <div key={pkg.package_id} className={Styles.packageCard}>
+                    <div className={Styles.cardHeader}>
+                      {/* <div className={Styles.statusBadge}>
+                        {pkg.packagehead_status === 'Active' ? (
+                          <CheckCircle className={Styles.activeIcon} />
+                        ) : (
+                          <Cancel className={Styles.inactiveIcon} />
+                        )}
+                        <span>{pkg.packagehead_status}</span>
+                      </div> */}
+                      <img 
+                        // src={pkg.packagebody[0]?.gallery[0]?.gallery_file || '/default-package.jpg'} 
+                        src={pkg.package_image} 
+
+                        alt="Package cover" 
+                        className={Styles.packageImage}
+                      />
+                    </div>
+                    
+                    <div className={Styles.cardBody}>
+                      <h3>{pkg.package_name}</h3>
+                      
+                      <div className={Styles.metaInfo}>
+                        <div className={Styles.metaItem}>
+                          <CalendarToday className={Styles.metaIcon} />
+                          <span>{pkg.package_duration} Days</span>
+                        </div>
+                        <div className={Styles.metaItem}>
+                          <LocalOffer className={Styles.metaIcon} />
+                          <span>${pkg.package_price}</span>
+                        </div>
+                        {/* <div className={Styles.metaItem}>
+                          <Hotel className={Styles.metaIcon} />
+                          <span>{pkg.packagehead_room_count} Rooms</span>
+                        </div> */}
+                      </div>
+
+                      {/* <div className={Styles.galleryPreview}>
+                        {pkg.packagebody[0]?.gallery.map((galleryItem) => (
+                          <div key={galleryItem.gallery_id} className={Styles.galleryThumb}>
+                            <img
+                              src={galleryItem.gallery_file}
+                              alt={galleryItem.gallery_description}
+                            />
+                          </div>
+                        ))}
+                      </div> */}
+
+                      <div className={Styles.actions}>
+                        <Link 
+                          to={`../editpackage/${pkg.package_id}`}
+                          className={Styles.editButton}
+                        >
+                          <Edit className={Styles.buttonIcon} />
+                          Edit
+                        </Link>
+                        <button
+                          className={Styles.deleteButton}
+                          onClick={() => handleDelete(pkg._id)}
+
+                        >
+                          <Delete className={Styles.buttonIcon} />
+                          Delete
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    );
   };
 
-  return (
-    <div className={Styles.navbar}>
-      <Navbar/>  
-    <div className={Styles.packagePageContainer}>
-   
-    <div className={Styles.main}>  <Sidebar/></div>
-    <div className={Styles.main1}>
-      <h1>Package Management</h1>
-      <div className={Styles.packageList}>
-        {packages.map((pkg) => (
-          <div key={pkg.packagehead_id} className={Styles.packageCard}>
-            <div className={Styles.packageHeader}>
-              <h2>{pkg.packagehead_details}</h2>
-              <p>Days: {pkg.packagehead_days}</p>
-              <p>Price: ${pkg.packagehead_price}</p>
-              <p>Status: {pkg.packagehead_status}</p>
-              <p>Room Count: {pkg.packagehead_room_count}</p>
-            </div>
-            <div className={Styles.packageBody}>
-              <h3>Package Details:</h3>
-              {pkg.packagebody.map((body) => (
-                <div key={body.packagebody_id} className={Styles.bodyItem}>
-                  <p>{body.packagebody_details}</p>
-                  <div className={Styles.gallery}>
-                    {body.gallery.map((galleryItem) => (
-                      <div key={galleryItem.gallery_id} className={Styles.galleryItem}>
-                        <img
-                          src={galleryItem.gallery_file}
-                          alt={galleryItem.gallery_description}
-                        />
-                        <p>{galleryItem.gallery_description}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div className={Styles.actions}>
-              {/* <button
-                className={Styles.editButton}
-                onClick={() => alert(`Edit package ${pkg.packagehead_id}`)}
-              >
-                Edit
-              </button> */}
-                          <Link to='../editpackage'className={Styles.editButton}>Edit</Link>
-
-              <button
-                className={Styles.deleteButton}
-                onClick={() => handleDelete(pkg.packagehead_id)}
-              >
-                Delete
-              </button>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-    </div>
-    </div>
-  );
-};
-
-export default PackagePage;
+  export default PackagePage;

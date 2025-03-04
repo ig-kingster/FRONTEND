@@ -124,7 +124,7 @@ const [photo, setPhoto] = useState([])
                 Email <span className={Styles.required}>*</span>
               </label>
               <input
-                type="email"
+                type="text"
                 name="hotel_email"
                 onChange={(e) => setEmail(e.target.value)}
                 className={Styles.inputField}

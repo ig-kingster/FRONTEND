@@ -1,14 +1,48 @@
-import React, { useState } from 'react'; 
+import React, { useEffect, useState } from 'react';
 import Styles from './Navbar.module.scss';
-import SearchSharpIcon from '@mui/icons-material/SearchSharp';
+// import SearchSharpIcon from '@mui/icons-material/SearchSharp';
 import { Link, useNavigate } from 'react-router-dom';
 import { AccountCircle } from "@mui/icons-material";
 import { IconButton, Badge, Menu, MenuItem, Typography } from "@mui/material";
 import NotificationsIcon from "@mui/icons-material/Notifications";
-
+// import { motion, AnimatePresence } from "framer-motion";
+import axios from 'axios';
+import { toast } from 'react-toastify';
 const Navbar = () => {
-  const userId = sessionStorage.getItem("uid");
-  const userEmail = sessionStorage.getItem("eid");
+  useEffect(() => {
+    fetchDetails();
+  }, []);
+  
+
+const [email, setEmail] = useState("")
+
+const hid = sessionStorage.getItem("hid");
+
+console.log(sessionStorage);
+
+const fetchDetails = async () => {
+  try {
+    const response = await axios.get(`http://127.0.0.1:8000/hotelemail/${hid}`);
+    console.log(response.data);
+  
+    setEmail(response.data?.hotel_email)
+    
+if(response.data)
+{
+toast.success("Hotel Data Found");
+
+}
+
+    console.log("Hotel Data:", response.data); // Debugging
+
+  } catch (error) {
+    toast.error("Error fetching Hotel:");
+
+  }
+};
+
+
+
   const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = useState(null);
   const [anchorNotifEl, setAnchorNotifEl] = useState(null);
@@ -28,7 +62,7 @@ const Navbar = () => {
 
   const handleLogout = () => {
     sessionStorage.clear();
-    navigate("/login");
+    navigate("/");
   };
 
   const handleNotiOpen = (event) => {
@@ -88,7 +122,7 @@ const Navbar = () => {
             style={{ display: "flex", alignItems: "center", cursor: "pointer" }}
           >
             <AccountCircle style={{ marginRight: "5px" }} />
-            {/* {userEmail} */}
+            {email}
           </Typography>
 
           {/* User Dropdown Menu */}

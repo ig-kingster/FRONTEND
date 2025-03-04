@@ -78,7 +78,7 @@ toast.success("User Data Found");
 
   const handleLogout = () => {
     sessionStorage.clear();
-    navigate("/login");
+    navigate("/");
   };
 
 

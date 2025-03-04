@@ -1,4 +1,6 @@
-import React, { useContext } from 'react'
+import React, { useContext } from 'react';
+// import { MyTheme } from '../../context/ThemeContext';
+// import { ReactComponent as CompassIcon } from './compass.svg'; // Add travel-themed SVG
 import SearchIcon from '@mui/icons-material/Search';
 import LanguageIcon from '@mui/icons-material/Language';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
@@ -7,47 +9,60 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import ListIcon from '@mui/icons-material/List';
 import LightModeIcon from '@mui/icons-material/LightMode';
-import './navbar.scss'
-import { MyTheme } from '../../context/ThemeContext';
+import './navbar.scss';
 
 const Navbar = () => {
-    const{check,setCheck} = useContext(MyTheme)
-    console.log(check);
+
   return (
     <div className="navbar">
-        <div className="wrapper">
-            <div className="search">
-                <input type='text' placeholder='Search..'/>
-                <SearchIcon/>
-            </div>
-            <div className="items">
-                <div className="item">
-                    <LanguageIcon className='icon'/>
-                    English
-                </div>
-                <div className="item">
-                    <button  onClick={() =>setCheck((previous) =>!previous)}>{check ? <DarkModeIcon className='icon'/> :<LightModeIcon className='icon'/>}
-                        
-                    </button>
-                </div>
-                <div className="item">
-                    <FullscreenExitIcon className='icon'/>
-                </div>
-                <div className="item">
-                    <NotificationsIcon className='icon'/>
-                    <div className="counter">1</div>
-                </div>
-                <div className="item">
-                    <ChatBubbleOutlineIcon className='icon'/>
-                    <div className="counter">2</div>
-                </div>
-                <div className="item">
-                    <ListIcon className='icon'/>
-                </div>
-            </div>
+      <div className="wrapper">
+        <div className="logo">
+          <img src='https://i.ibb.co/dJHmJmC4/jsg.png' />
+          {/* <span>Wanderlust</span> */}
         </div>
-    </div>
-  )
-}
 
-export default Navbar
+        <div className="search">
+          <input type="text" placeholder="Search destinations, packages..." />
+          <SearchIcon className="icon" />
+        </div>
+
+        <div className="items">
+          <div className="item">
+            <LanguageIcon className="icon" />
+            <span>English</span>
+          </div>
+          
+          <div className="item">setCheck
+            {/* <button onClick={() => ((prev) => !prev)}>
+              {check ? (
+                <LightModeIcon className="icon" />
+              ) : (
+                <DarkModeIcon className="icon" />
+              )}
+            </button> */}
+          </div>
+
+          <div className="item">
+            <FullscreenExitIcon className="icon" />
+          </div>
+
+          <div className="item">
+            <NotificationsIcon className="icon" />
+            <div className="counter">3</div>
+          </div>
+
+          <div className="item">
+            <ChatBubbleOutlineIcon className="icon" />
+            <div className="counter">2</div>
+          </div>
+
+          <div className="item">
+            <ListIcon className="icon" />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Navbar;

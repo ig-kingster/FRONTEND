@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import Styles from './district.module.scss'
-import { Box, Button, Paper, TextField } from '@mui/material'
+import { Box, Button, Paper, TextField, InputAdornment, MenuItem, Select, FormControl } from '@mui/material'
 import { MyTheme } from '../../context/ThemeContext'
 import Sidebar from '../../components/sidebar/Sidebar'
 import Navbar from '../../components/navbar/Navbar'
 import axios from 'axios'
-import { DataGrid } from '@mui/x-data-grid'
+import LocationCityIcon from '@mui/icons-material/LocationCity';
+import PublicIcon from '@mui/icons-material/Public';
+import SaveIcon from '@mui/icons-material/Save';
+import { toast } from 'react-toastify';
 
 
 const Districts = () => {
@@ -24,16 +27,22 @@ const Districts = () => {
           }
           const response = await axios.post('http://127.0.0.1:8000/district', data)
           console.log('District added successful:', response.data);
+                      toast.success("  District Added Sucessfully");
+          
           setDname("")
           setState("")
       } catch (error) {
           console.error('Error registering:', error);
+                      toast.error("  Error Adding District ");
+          
       }
   }
 
   const fetchState = () => {
       axios.get(`http://127.0.0.1:8000/state`).then((response) => {
           console.log(response.data);
+                      toast.success("  States Fetched Sucessfully");
+          
           setData(response.data)
       });
   };
@@ -51,40 +60,74 @@ const Districts = () => {
 ];
 
   return (
-    <MyTheme.Provider value={{ check, setCheck }}>
-      <div className={`${check ? 'home light' : 'home dark'}`}>
-        <Sidebar />
-        <div className="homeContainer">
-          <Navbar />
-          <Box component={'form'} onSubmit={handleSubmit} className={Styles.Container}>
-            <div className={Styles.Banner}></div>
-            <div className={Styles.Sub}>
-              
-              <div className={Styles.Text}>
-              <select className={Styles.Sel} onChange={(e) => setState(e.target.value)} value={state_id}>
-                                    <option>State</option>
-                                    {
-                                        data && data.map((item, index) => (
-                                            <option key={index} value={item._id}>{item.state_name}</option>
+    <div className={`${check ? 'home light' : 'home dark'}`}>
+      <Sidebar />
+      <div className="homeContainer">
+        <Navbar />
+        <Box component={'form'} onSubmit={handleSubmit} className={Styles.Container}>
+          <div className={Styles.Banner}>
+            <h1>Explore Districts</h1>
+          </div>
+          
+          <div className={Styles.Sub}>
+            <div className={Styles.Text}>
+              <FormControl fullWidth>
+                <Select
+                  className={Styles.Sel}
+                  value={state_id}
+                  onChange={(e) => setState(e.target.value)}
+                  startAdornment={
+                    <InputAdornment position="start">
+                      <PublicIcon />
+                    </InputAdornment>
+                  }
+                >
+                  <MenuItem value="">
+                    <em>Select State</em>
+                  </MenuItem>
+                  {data.map((item) => (
+                    <MenuItem key={item._id} value={item._id}>
+                      {item.state_name}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
 
-                                        ))
-                                    }
-                                </select>
-
-                <TextField className={Styles.Field} id="standard-basic" value={dname} label="District Name" variant="standard" onChange={(e) => setDname(e.target.value)} />
-                  
-                <Button type='submit' className={Styles.Buttons} variant="contained">Submit</Button>
-              </div>
-              <div className={Styles.Image}>
-                <img src="https://img.freepik.com/free-vector/urban-cityscape-isolated-white-background_1308-98973.jpg?t=st=1738040680~exp=1738044280~hmac=0e4f5b4bb610eec91ceb7b2deec96055025ad2bc7499b3fc4e74992348b554fd&w=1060" />
-              </div>
+              <TextField 
+                className={Styles.Field} 
+                value={dname} 
+                label="District Name" 
+                variant="standard"
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <LocationCityIcon  />
+                    </InputAdornment>
+                  ),
+                }}
+                onChange={(e) => setDname(e.target.value)} 
+              />
+                
+              <Button 
+                type='submit' 
+                className={Styles.Buttons} 
+                variant="contained"
+                startIcon={<SaveIcon />}
+              >
+                Save Destination
+              </Button>
             </div>
-
-          </Box>
-        </div>
-   
+            
+            {/* <div className={Styles.Image}>
+              <img 
+                src="https://img.freepik.com/free-vector/colorful-tourist-map_23-2147650035.jpg" 
+                alt="Travel Map" 
+              /> */}
+            {/* </div> */}
+          </div>
+        </Box>
       </div>
-    </MyTheme.Provider>
+    </div>
   )
 }
 

@@ -5,7 +5,6 @@ import PersonOutlinedIcon from '@mui/icons-material/PersonOutlined';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlined';
 import AccountBalanceWalletOutlinedIcon from '@mui/icons-material/AccountBalanceWalletOutlined';
-import { MyTheme } from '../../context/ThemeContext';
 
 const Widget = ({ type }) => {
     const [check,setCheck] = useState(true)
@@ -78,7 +77,6 @@ const Widget = ({ type }) => {
             break;
     }
   return (
-    <MyTheme.Provider value={{check,setCheck}}>
         <div className={`${check ? 'widget light' : 'widget dark'}`}>
             <div className="left">
                 <span className="title">{data.title}</span>       
@@ -95,7 +93,6 @@ const Widget = ({ type }) => {
                 {data.icon}
             </div>
         </div>
-    </MyTheme.Provider>
   )
 }
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Styles from "./State.module.scss";
-import { Box, Button, TextField, Paper } from "@mui/material";
+import { Box, Button, TextField, Paper, InputAdornment } from "@mui/material"; // ✅ Added missing InputAdornment
 import { MyTheme } from "../../context/ThemeContext";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
@@ -8,6 +8,11 @@ import axios from "axios";
 import { DataGrid } from "@mui/x-data-grid";
 import AddIcon from '@mui/icons-material/Add';
 import TableRowsIcon from '@mui/icons-material/TableRows';
+import LocationOnIcon from '@mui/icons-material/LocationOn'; // ✅ Missing LocationOnIcon import
+import PublicIcon from '@mui/icons-material/Public'; // ✅ Missing PublicIcon import
+import SaveIcon from '@mui/icons-material/Save'; // ✅ Missing SaveIcon import
+import { toast } from 'react-toastify';
+
 
 const State = () => {
     const [check, setCheck] = useState(true);
@@ -28,7 +33,10 @@ const State = () => {
                 state_name: state.state_name,
             }));
             setStates(formattedStates);
+            toast.success("  States Fetched Sucessfully");
+
         } catch (error) {
+            toast.error("Error Fetcching States");
             console.error("Error fetching states:", error);
         }
     };
@@ -41,72 +49,64 @@ const State = () => {
             setSname("");
             fetchStates();
             setShowForm(false);
+            toast.success("  States Added Sucessfully");
+
         } catch (error) {
             console.error("Error adding state:", error);
+            toast.error("Error Adding States");
+
+            
         }
     };
 
-    const columns = [
-        { field: "id", headerName: "ID", width: 100 },
-        { field: "state_name", headerName: "State Name", width: 200 },
-    ];
 
     return (
-        <MyTheme.Provider value={{ check, setCheck }}>
-            <div className={`${check ? "home light" : "home dark"}`}>
-                <Sidebar />
-                <div className="homeContainer">
-                    <Navbar />
-                    <div className={Styles.top}>
+        <div className={`${check ? "home light" : "home dark"}`}>
+            <Sidebar />
+            <div className="homeContainer">
+                <Navbar />
+                 <Box component={"form"} onSubmit={handleSubmit} className={Styles.Container}>
 
-
-                        <h1>MANAGE STATE</h1>
-                        <Button
-                            className={Styles.AddButton}
-                            onClick={() => setShowForm(!showForm)}
-                        >
-                            {showForm ? <TableRowsIcon /> : <AddIcon />}
-                        </Button>
-                    </div>
-                    {showForm ? (
-                        <Box component={"form"} onSubmit={handleSubmit} className={Styles.Container}>
-
-                            <div className={Styles.Sub}>
-                                <div className={Styles.Text}>
-                                    <TextField
-                                        className={Styles.Field}
-                                        label="State Name"
-                                        variant="standard"
-                                        value={sname}
-                                        onChange={(e) => setSname(e.target.value)}
-                                    />
-                                    <Button type="submit" className={Styles.Buttons} variant="contained">
-                                        Submit
-                                    </Button>
-                                </div>
-                                <div className={Styles.Image}>
-                                    <img
-                                        src="https://img.freepik.com/free-vector/vector-isometric-3d-illustrations-modern-urban-quarter-with-skyscrapers-offices-residential-buildings-transport_1441-256.jpg?ga=GA1.1.1719564746.1730282531"
-                                        alt="City Illustration"
-                                    />
-                                </div>
-                            </div>
-                        </Box>
-                    ) : (
-                        <Paper className={Styles.TableContainer}>
-                            <DataGrid rows={states}
-                                columns={columns}
-                                initialState={{ pagination: { paginationModel } }}
-                                pageSizeOptions={[4, 10]}
-                                checkboxSelection
-                                sx={{ border: 0 }} />
-                        </Paper>
-                    )}
-
-
+                <div className={Styles.Banner}>
+                    <h1>Explore States</h1>
+                
                 </div>
+                        <div className={Styles.Sub}>
+                            <div className={Styles.Text}>
+                                <TextField
+                                    className={Styles.Field}
+                                    label="Destination State"
+                                    variant="standard"
+                                    value={sname}
+                                    onChange={(e) => setSname(e.target.value)}
+                                    InputProps={{
+                                        startAdornment: (
+                                            <InputAdornment position="start">
+                                                <PublicIcon />
+                                            </InputAdornment>
+                                        ),
+                                    }}
+                                />
+                                <Button 
+                                    type="submit" 
+                                    className={Styles.Buttons} 
+                                    variant="contained"
+                                    startIcon={<SaveIcon />}
+                                >
+                                    Save Destination
+                                </Button>
+                            </div>
+                            {/* <div className={Styles.Image}>
+                                <img
+                                    src="https://img.freepik.com/free-vector/world-map-infographic-scroll-style_23-2148830022.jpg"
+                                    alt="Travel Map"
+                                />
+                            </div> */}
+                        </div>
+                    </Box>
+               
             </div>
-        </MyTheme.Provider>
+        </div>
     );
 };
 

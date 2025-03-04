@@ -1,114 +1,334 @@
 
-.packagePageContainer {
-    display: flex;
-    gap: 30px;
-    background-color: #f9f9f9;
-    font-family: Arial, sans-serif;
-  }
+// .packagePageContainer {
+//     display: flex;
+//     gap: 30px;
+//     background-color: #f9f9f9;
+//     font-family: Arial, sans-serif;
+//   }
   
+//   h1 {
+//     font-size: 24px;
+//     color: #333;
+//     margin-bottom: 20px;
+//   }
+  
+//   .packageList {
+//     display: flex;
+//     flex-direction: column;
+//     gap: 20px;
+//   }
+  
+//   .packageCard {
+//     background-color: #fff;
+//     border: 1px solid #ddd;
+//     border-radius: 8px;
+//     padding: 20px;
+//     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+//   }
+  
+//   .packageHeader {
+//     margin-bottom: 20px;
+  
+//     h2 {
+//       font-size: 20px;
+//       color: #333;
+//       margin-bottom: 10px;
+//     }
+  
+//     p {
+//       font-size: 14px;
+//       color: #666;
+//       margin: 5px 0;
+//     }
+//   }
+  
+//   .packageBody {
+//     margin-bottom: 20px;
+  
+//     h3 {
+//       font-size: 18px;
+//       color: #333;
+//       margin-bottom: 10px;
+//     }
+  
+//     .bodyItem {
+//       margin-bottom: 15px;
+  
+//       p {
+//         font-size: 14px;
+//         color: #666;
+//       }
+//     }
+  
+//     .gallery {
+//       display: flex;
+//       gap: 10px;
+//       margin-top: 10px;
+  
+//       .galleryItem {
+//         img {
+//           width: 100px;
+//           height: 100px;
+//           border-radius: 8px;
+//           object-fit: cover;
+//         }
+  
+//         p {
+//           font-size: 12px;
+//           color: #666;
+//           text-align: center;
+//         }
+//       }
+//     }
+//   }
+  
+//   .actions {
+//     display: flex;
+//     gap: 10px;
+  
+//     button {
+//       padding: 8px 16px;
+//       border: none;
+//       border-radius: 4px;
+//       cursor: pointer;
+//       font-size: 14px;
+//     }
+  
+//     .editButton {
+//       background-color: #4caf50;
+//       color: white;
+  
+//       &:hover {
+//         background-color: #45a049;
+//       }
+//     }
+  
+//     .deleteButton {
+//       background-color: #f44336;
+//       color: white;
+  
+//       &:hover {
+//         background-color: #e53935;
+//       }
+//     }
+//   }
+
+
+
+// Packages.module.scss
+$primary-color: #1a365d;
+$secondary-color: #0e7c7b;
+$accent-color: #f6af33;
+$hover-bg: rgba(246, 175, 51, 0.1);
+
+.container {
+  background: #f8f9fa;
+}
+
+.dashboardWrapper {
+  display: flex;
+}
+
+.mainContent {
+  flex: 1;
+  padding: 2rem;
+  margin-left: 250px;
+
+  @media (max-width: 768px) {
+    margin-left: 0;
+    padding: 1rem;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+
   h1 {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  
-  .packageList {
+    color: $primary-color;
+    font-family: 'Pacifico', cursive;
     display: flex;
-    flex-direction: column;
-    gap: 20px;
+    align-items: center;
+    gap: 1rem;
+    margin: 0;
   }
+}
+
+.addButton {
+  background: $secondary-color;
+  color: white !important;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: darken($secondary-color, 10%);
+    transform: translateY(-2px);
+  }
+}
+
+.packageGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.packageCard {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+
+.cardHeader {
+  position: relative;
   
-  .packageCard {
-    background-color: #fff;
-    border: 1px solid #ddd;
+  .packageImage {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+}
+
+.statusBadge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(white, 0.9);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+
+  .activeIcon {
+    color: #2ecc71;
+  }
+
+  .inactiveIcon {
+    color: #e74c3c;
+  }
+}
+
+.cardBody {
+  padding: 1.5rem;
+
+  h3 {
+    color: $primary-color;
+    margin: 0 0 1rem;
+    font-size: 1.2rem;
+  }
+}
+
+.metaInfo {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: $secondary-color;
+
+  .metaIcon {
+    font-size: 1.2rem;
+  }
+}
+
+.galleryPreview {
+  display: flex;
+  gap: 0.5rem;
+  margin: 1rem 0;
+  overflow-x: auto;
+
+  .galleryThumb {
+    width: 80px;
+    height: 60px;
     border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .packageHeader {
-    margin-bottom: 20px;
-  
-    h2 {
-      font-size: 20px;
-      color: #333;
-      margin-bottom: 10px;
-    }
-  
-    p {
-      font-size: 14px;
-      color: #666;
-      margin: 5px 0;
+    overflow: hidden;
+    flex-shrink: 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
   }
-  
-  .packageBody {
-    margin-bottom: 20px;
-  
-    h3 {
-      font-size: 18px;
-      color: #333;
-      margin-bottom: 10px;
-    }
-  
-    .bodyItem {
-      margin-bottom: 15px;
-  
-      p {
-        font-size: 14px;
-        color: #666;
-      }
-    }
-  
-    .gallery {
-      display: flex;
-      gap: 10px;
-      margin-top: 10px;
-  
-      .galleryItem {
-        img {
-          width: 100px;
-          height: 100px;
-          border-radius: 8px;
-          object-fit: cover;
-        }
-  
-        p {
-          font-size: 12px;
-          color: #666;
-          text-align: center;
-        }
-      }
-    }
-  }
-  
-  .actions {
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+
+  a, button {
+    flex: 1;
     display: flex;
-    gap: 10px;
-  
-    button {
-      padding: 8px 16px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 14px;
-    }
-  
-    .editButton {
-      background-color: #4caf50;
-      color: white;
-  
-      &:hover {
-        background-color: #45a049;
-      }
-    }
-  
-    .deleteButton {
-      background-color: #f44336;
-      color: white;
-  
-      &:hover {
-        background-color: #e53935;
-      }
-    }
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
   }
+}
+
+.editButton {
+  background: rgba($secondary-color, 0.1);
+  color: $secondary-color !important;
+
+  &:hover {
+    background: rgba($secondary-color, 0.2);
+  }
+}
+
+.deleteButton {
+  background: rgba(#e74c3c, 0.1);
+  color: #e74c3c !important;
+
+  &:hover {
+    background: rgba(#e74c3c, 0.2);
+  }
+}
+
+.loading {
+  text-align: center;
+  padding: 3rem;
+
+  p {
+    color: $primary-color;
+    margin-top: 1rem;
+  }
+}
+
+.loader {
+  width: 40px;
+  height: 40px;
+  border: 4px solid $secondary-color;
+  border-top-color: transparent;
+  border-radius: 50%;
+  margin: 0 auto;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

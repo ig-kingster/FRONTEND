@@ -24,16 +24,29 @@ const Login = () => {
       
       const response = await axios.post('http://127.0.0.1:8000/login', data)
       console.log('login successful:', response.data);
+
+      const {id,status,login} = response.data
+      if(login === "User"){
       toast.success("Login successful!");
 
-      const {id,email,login} = response.data
-      if(login === "User"){
         sessionStorage.setItem("uid",id)
         navigate("/user")
       }
       else if(login === "Hotel"){
-        sessionStorage.setItem("uid",id)
+        if(status==="accept"){
+        sessionStorage.setItem("hid",id)
         navigate("/hotel")
+      toast.success("Login successful!");
+
+        }
+        if(status === "reject")
+        {
+          toast.error("Your Application Is Rejected ,Register Again")
+
+        }
+        else{
+          toast.error("Your Application Is Currently Pending")
+        }
       }
       
       else{

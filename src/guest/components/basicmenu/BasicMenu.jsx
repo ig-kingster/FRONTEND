@@ -11,7 +11,7 @@ import Dialog from '@mui/material/Dialog';
 import LockPersonIcon from '@mui/icons-material/LockPerson';
 import Slide from '@mui/material/Slide';
 import HotelRegistration from '../../pages/hotelregistration/Hotelregistration';
-
+import HotelIcon from '@mui/icons-material/Hotel';
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
   });
@@ -89,7 +89,7 @@ const SignuphClose = () => {
       >
         <MenuItem onClick={LoginOpen}><LockPersonIcon/> Login</MenuItem>
         <MenuItem onClick={SignupOpen}><PersonAddIcon/> User Sign Up</MenuItem>
-        <MenuItem onClick={SignuphOpen}><PersonAddIcon/> Hotel Sign Up</MenuItem>
+        <MenuItem onClick={SignuphOpen}><HotelIcon/> Hotel Sign Up</MenuItem>
 
 
         {/* <MenuItem onClick={handleClose}>Logout</MenuItem> */}

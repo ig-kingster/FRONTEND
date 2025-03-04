@@ -1,56 +1,195 @@
-.container {
-    max-width: 1200px;
-    display: flex;
+// Packageadd.module.scss
+$primary-color: #1a365d;
+$secondary-color: #0e7c7b;
+$accent-color: #f6af33;
+$hover-bg: rgba(246, 175, 51, 0.1);
 
+.container {
+  background: #f8f9fa;
+}
+
+.dashboardWrapper {
+  display: flex;
+}
+
+.mainContent {
+  flex: 1;
+  padding: 2rem;
+  margin-left: 250px;
+
+  @media (max-width: 768px) {
+    margin-left: 0;
+    padding: 1rem;
   }
+}
+
+.header {
+  margin-bottom: 2rem;
   
-  .mainContent {
-    flex: 1;
-    padding: 20px;
-  }
-  
-  .heading {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 15px;
-  }
-  
-  .packageCard {
+  h1 {
+    color: $primary-color;
+    font-family: 'Pacifico', cursive;
     display: flex;
-    flex-direction: row;
-    background: #fff;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    color: lighten($primary-color, 20%);
+    margin: 0;
+  }
+}
+
+.formContainer {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 2rem;
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.imageUploadSection {
+  .imagePreview {
+    height: 400px;
+    border: 2px dashed $secondary-color;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    margin-bottom: 20px;
-  }
-  
-  .detailsSection {
-    flex: 2;
-    padding: 20px;
-  }
-  
-  .info {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin: 10px 0;
-    font-size: 16px;
-    color: #555;
+    align-items: center;
+    justify-content: center;
+    background: rgba($secondary-color, 0.05);
+    position: relative;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
-  
-  .bookNow {
-    padding: 10px 20px;
-    background: #1976d2;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    border: none;
+
+  .uploadPrompt {
+    text-align: center;
+    color: $secondary-color;
     cursor: pointer;
+
+    input[type="file"] {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: pointer;
+      
+    }
   }
-  
-  .bookNow:hover {
-    background: #1565c0;
+
+  .uploadIcon {
+    font-size: 3rem !important;
+    margin-bottom: 1rem;
   }
-  
+}
+
+.packageForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.formGroup {
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: $primary-color;
+    font-weight: 500;
+  }
+
+  .required {
+    color: #e74c3c;
+    margin-right: 3px;
+  }
+
+  input, textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid rgba($primary-color, 0.2);
+    border-radius: 6px;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+
+    &:focus {
+      outline: none;
+      border-color: $secondary-color;
+      box-shadow: 0 0 0 2px rgba($secondary-color, 0.2);
+    }
+  }
+
+  textarea {
+    height: 100px;
+    resize: vertical;
+  }
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// .inclusionsGrid {
+//   display: grid;
+//   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+//   gap: 1rem;
+// }
+
+// .inclusionItem {
+//   display: flex;
+//   align-items: center;
+//   gap: 0.5rem;
+//   padding: 0.8rem;
+//   border: 1px solid rgba($primary-color, 0.1);
+//   border-radius: 6px;
+//   cursor: pointer;
+//   transition: all 0.3s ease;
+
+//   input {
+//     display: none;
+//   }
+
+//   &.selected {
+//     border-color: $secondary-color;
+//     background: rgba($secondary-color, 0.05);
+//     color: $secondary-color;
+//   }
+
+//   svg {
+//     color: $secondary-color;
+//   }
+// }
+
+.submitButton {
+  background: linear-gradient(135deg, $secondary-color, $primary-color);
+  color: white !important;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 6px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba($secondary-color, 0.3);
+  }
+}
