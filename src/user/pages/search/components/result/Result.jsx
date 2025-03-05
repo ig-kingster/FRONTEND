@@ -3,11 +3,14 @@ import { Link, useLocation } from 'react-router-dom';
 import Styles from './Result.module.scss';
 import EastIcon from '@mui/icons-material/East';
 import axios from "axios";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 
 const Result = () => {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
-  const searchQuery = queryParams.get('result') || ''; 
+  const searchQuery = queryParams.get('result') || '';
 
   const [packages, setPackages] = useState([]);
   const [filteredPackages, setFilteredPackages] = useState([]);
@@ -31,7 +34,7 @@ const Result = () => {
     if (priceFilter) {
       result = result.filter(pkg => pkg.package_price <= parseInt(priceFilter));
     }
-    
+
     setFilteredPackages(result);
   }, [searchQuery, priceFilter, packages]);
 
@@ -45,6 +48,17 @@ const Result = () => {
     } finally {
       setLoading(false);
     }
+  };
+
+  // Slick carousel settings
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000
   };
 
   return (
@@ -65,12 +79,20 @@ const Result = () => {
         <div className={Styles.grid}>
           {filteredPackages.map((pkg) => (
             <div key={pkg._id} className={Styles.card}>
-              <img src={pkg.package_image} alt={pkg.package_name} className={Styles.img} />
+              {pkg.images.length > 0 ? (
+                <Slider {...sliderSettings}>
+                  {pkg.images.map((img, index) => (
+                    <img key={index} src={img} alt={pkg.package_name} className={Styles.img} />
+                  ))}
+                </Slider>
+              ) : (
+                <p>No images available</p>
+              )}
               <div className={Styles.info}>
                 <h3 className={Styles.name}>{pkg.package_name}</h3>
                 <p className={Styles.description}>{pkg.package_description}</p>
                 <p className={Styles.price}>${pkg.package_price}</p>
-                <Link to="../viewmore" className={Styles.explore}>
+                <Link to={`../viewmore?package_id=${pkg._id}`} className={Styles.explore}>
                   Explore <EastIcon className={Styles.arrow} />
                 </Link>
               </div>
