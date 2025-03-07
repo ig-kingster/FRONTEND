@@ -28,6 +28,7 @@ const HotelRoutes = () => {
 
 
 
+
       </Routes>
     </div>
   )
