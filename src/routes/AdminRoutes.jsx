@@ -5,6 +5,7 @@ import Districts from '../admin/pages/districts/Districts'
 import Place from '../admin/pages/place/Place'
 import State from '../admin/pages/state/State'
 import Application from '../admin/pages/Applications/Application'
+import Users from '../admin/pages/users/Users'
 
 const AdminRoutes = () => {
   return (
@@ -15,6 +16,8 @@ const AdminRoutes = () => {
         <Route path='/state' element={<State />}></Route>
         <Route path='/place' element={<Place />}></Route>
         <Route path='/application' element={<Application />}></Route>
+        <Route path='/users' element={<Users />}></Route>
+
 
       </Routes>
     </div>

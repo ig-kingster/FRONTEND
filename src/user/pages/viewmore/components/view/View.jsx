@@ -70,7 +70,28 @@ const View = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
             className={Styles.packageContainer}
-        >
+        > 
+
+
+            {/* Gallery Carousel */}
+            {packageDetails.all_gallery_images && packageDetails.all_gallery_images.length > 0 && (
+                <motion.div
+                    initial={{ y: 50, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.6, delay: 0.6 }}
+                    className={Styles.gallery}
+                >
+                    <h2 className={Styles.sectionTitle}>Gallery</h2>
+                    <Slider {...carouselSettings}>
+                        {packageDetails.all_gallery_images.map((img, index) => (
+                            <div key={index} className={Styles.carouselItem}>
+                                <img src={img} alt={`Gallery ${index}`} className={Styles.galleryImage} />
+                            </div>
+                        ))}
+                    </Slider>
+                </motion.div>
+            )}
+
             {/* Package Header */}
             <motion.div
                 initial={{ y: -50, opacity: 0 }}
@@ -90,7 +111,7 @@ const View = () => {
                     </div>
                     <div className={Styles.metaItem}>
                         <GroupsIcon className={Styles.icon} />
-                        <span>Group Package</span>
+                        <span>Traveller Count {packageDetails.package_count}</span>
                     </div>
                     <div className={Styles.metaItem}>
                         <StarRateIcon className={Styles.icon} />
@@ -141,24 +162,6 @@ const View = () => {
                 </motion.div>
             )}
 
-            {/* Gallery Carousel */}
-            {packageDetails.all_gallery_images && packageDetails.all_gallery_images.length > 0 && (
-                <motion.div
-                    initial={{ y: 50, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.6, delay: 0.6 }}
-                    className={Styles.gallery}
-                >
-                    <h2 className={Styles.sectionTitle}>Gallery</h2>
-                    <Slider {...carouselSettings}>
-                        {packageDetails.all_gallery_images.map((img, index) => (
-                            <div key={index} className={Styles.carouselItem}>
-                                <img src={img} alt={`Gallery ${index}`} className={Styles.galleryImage} />
-                            </div>
-                        ))}
-                    </Slider>
-                </motion.div>
-            )}
 
             {/* Package Itinerary */}
             {packageDetails.package_bodies && packageDetails.package_bodies.length > 0 && (

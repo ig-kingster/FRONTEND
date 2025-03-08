@@ -37,6 +37,7 @@ const Place = () => {
             place_name:pname,
             district_id:district
         }
+        
         const response = await axios.post('http://127.0.0.1:8000/place', data)
         console.log('District added successful:', response.data);
                     toast.success("  Place Added Sucessfully");

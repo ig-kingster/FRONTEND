@@ -69,7 +69,10 @@ const Sidebar = () => {
             <p className="title">Management</p>
             <li>
               <AccountCircleIcon className="icon" />
+              <Link to="../users" className="links">
+
               <span>Customers</span>
+              </Link>
             </li>
             <li>
               <InventoryIcon className="icon" />

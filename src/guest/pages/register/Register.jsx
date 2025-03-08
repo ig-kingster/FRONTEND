@@ -8,6 +8,8 @@ const Register = () => {
   const [email, SetEmail] = useState("")
   const [password, SetPassword] = useState("")
 
+  const registrationDate = new Date().toISOString();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!email.trim() || !password.trim()) {
@@ -16,13 +18,16 @@ const Register = () => {
 
       return;
     }
+
     try {
 
       const data = {
         user_email: email,
         user_password: password,
-
+        registration_date: registrationDate,
       }
+    console.log("Sending Data:", data); // Debugging
+
       const response = await axios.post('http://127.0.0.1:8000/user', data)
       console.log('User Register successful:', response.data);
       toast.success(" Register successful");

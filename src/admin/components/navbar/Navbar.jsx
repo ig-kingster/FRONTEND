@@ -32,7 +32,8 @@ const Navbar = () => {
             <span>English</span>
           </div>
           
-          <div className="item">setCheck
+          <div className="item">
+            {/* setCheck */}
             {/* <button onClick={() => ((prev) => !prev)}>
               {check ? (
                 <LightModeIcon className="icon" />
